@@ -75,7 +75,7 @@ const Navbar = () => {
           </motion.a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-2">
             {navLinks.map((link) => (
               <motion.a
                 key={link.name}
@@ -84,7 +84,7 @@ const Navbar = () => {
                   e.preventDefault()
                   handleLinkClick(link.name, link.href)
                 }}
-                className="relative px-3 py-2 text-sm font-medium transition-colors"
+                className="relative px-2 py-2 text-sm font-medium transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -129,7 +129,7 @@ const Navbar = () => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden glass-dark mt-4 rounded-lg overflow-hidden"
           >
-            <div className="px-4 py-4 space-y-2">
+            <div className="px-2 py-2 space-y-1">
               {navLinks.map((link) => (
                 <motion.a
                   key={link.name}
@@ -138,7 +138,7 @@ const Navbar = () => {
                     e.preventDefault()
                     handleLinkClick(link.name, link.href)
                   }}
-                  className={`block px-4 py-2 rounded-lg transition-colors ${
+                  className={`block px-2 py-1 rounded-lg transition-colors ${
                     activeLink === link.name
                       ? 'bg-primary-500/20 text-primary-400'
                       : 'text-gray-300 hover:bg-gray-800 hover:text-white'
