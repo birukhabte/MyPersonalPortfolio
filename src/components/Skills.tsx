@@ -15,28 +15,27 @@ import { SiTypescript, SiPostgresql, SiMongodb, SiTailwindcss } from 'react-icon
 
 interface Skill {
   name: string
-  level: number
   icon: React.ReactNode
   category: 'frontend' | 'backend' | 'tools'
 }
 
 const skills: Skill[] = [
   // Frontend
-  { name: 'React', level: 90, icon: <FaReact />, category: 'frontend' },
-  { name: 'TypeScript', level: 85, icon: <SiTypescript />, category: 'frontend' },
-  { name: 'Tailwind CSS', level: 90, icon: <SiTailwindcss />, category: 'frontend' },
-  { name: 'JavaScript', level: 88, icon: <FaJs />, category: 'frontend' },
+  { name: 'React', icon: <FaReact />, category: 'frontend' },
+  { name: 'TypeScript', icon: <SiTypescript />, category: 'frontend' },
+  { name: 'Tailwind CSS', icon: <SiTailwindcss />, category: 'frontend' },
+  { name: 'JavaScript', icon: <FaJs />, category: 'frontend' },
   
   // Backend
-  { name: 'Node.js', level: 85, icon: <FaNode />, category: 'backend' },
-  { name: 'PostgreSQL', level: 80, icon: <SiPostgresql />, category: 'backend' },
-  { name: 'MongoDB', level: 75, icon: <SiMongodb />, category: 'backend' },
-  { name: 'Python', level: 70, icon: <FaPython />, category: 'backend' },
+  { name: 'Node.js', icon: <FaNode />, category: 'backend' },
+  { name: 'PostgreSQL', icon: <SiPostgresql />, category: 'backend' },
+  { name: 'MongoDB', icon: <SiMongodb />, category: 'backend' },
+  { name: 'Python', icon: <FaPython />, category: 'backend' },
   
   // Tools
-  { name: 'Docker', level: 75, icon: <FaDocker />, category: 'tools' },
-  { name: 'AWS', level: 70, icon: <FaAws />, category: 'tools' },
-  { name: 'Git', level: 85, icon: <FaTools />, category: 'tools' },
+  { name: 'Docker', icon: <FaDocker />, category: 'tools' },
+  { name: 'AWS', icon: <FaAws />, category: 'tools' },
+  { name: 'Git', icon: <FaTools />, category: 'tools' },
 ]
 
 const categories = [
@@ -83,7 +82,7 @@ const Skills = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-primary-400 to-primary-600 mx-auto rounded-full" />
           </motion.div>
 
-          <div className="space-y-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {categories.map((category) => {
               const categorySkills = skills.filter(
                 (skill) => skill.category === category.id
@@ -104,7 +103,7 @@ const Skills = () => {
                     </h3>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 gap-4">
                     {categorySkills.map((skill, index) => (
                       <motion.div
                         key={skill.name}
@@ -118,7 +117,7 @@ const Skills = () => {
                         }
                         transition={{ delay: index * 0.1 }}
                       >
-                        <div className="flex items-center gap-3 mb-3">
+                        <div className="flex items-center gap-3">
                           <div className="text-xl text-primary-400">
                             {skill.icon}
                           </div>
@@ -126,23 +125,6 @@ const Skills = () => {
                             {skill.name}
                           </span>
                         </div>
-                        <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
-                          <motion.div
-                            className="h-full bg-gradient-to-r from-primary-400 to-primary-600 rounded-full"
-                            initial={{ width: 0 }}
-                            animate={
-                              isInView ? { width: `${skill.level}%` } : { width: 0 }
-                            }
-                            transition={{
-                              duration: 1,
-                              delay: index * 0.1 + 0.3,
-                              ease: 'easeOut',
-                            }}
-                          />
-                        </div>
-                        <span className="text-sm text-gray-400 mt-1 block text-right">
-                          {skill.level}%
-                        </span>
                       </motion.div>
                     ))}
                   </div>
