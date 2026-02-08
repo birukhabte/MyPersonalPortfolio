@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import aboutImage from '../New folder/image.png'
 
 const techStack = [
   'React',
@@ -64,27 +65,55 @@ const About = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-primary-400 to-primary-600 mx-auto rounded-full" />
           </motion.div>
 
-          <motion.div
-            variants={itemVariants}
-            className="glass-dark rounded-2xl p-8 sm:p-10 mb-12"
-          >
-            <p className="text-lg text-gray-300 leading-relaxed mb-6">
-              I'm a passionate Full-Stack Developer with a strong foundation
-              in modern web technologies. I specialize in building scalable,
-              performant applications that solve real-world problems.
-            </p>
-            <p className="text-lg text-gray-300 leading-relaxed mb-6">
-              With expertise in both frontend and backend development, I create
-              seamless user experiences while ensuring robust, maintainable code.
-              I'm always eager to learn new technologies and take on challenging
-              projects.
-            </p>
-            <p className="text-lg text-gray-300 leading-relaxed">
-              When I'm not coding, you can find me exploring new frameworks,
-              contributing to open-source projects, or sharing knowledge with
-              the developer community.
-            </p>
-          </motion.div>
+          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12 mb-12">
+            {/* Image - Left Side */}
+            <motion.div
+              variants={itemVariants}
+              className="flex-shrink-0"
+              initial={{ opacity: 0, x: -50 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <motion.div
+                className="relative"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 rounded-full blur-2xl opacity-30 animate-pulse" />
+                <motion.img
+                  src={aboutImage}
+                  alt="Profile"
+                  className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full object-cover border-4 border-primary-500/50 shadow-2xl shadow-primary-500/20"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                />
+              </motion.div>
+            </motion.div>
+
+            {/* Text Content - Right Side */}
+            <motion.div
+              variants={itemVariants}
+              className="flex-1 glass-dark rounded-2xl p-8 sm:p-10"
+            >
+              <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                I'm a passionate Full-Stack Developer with a strong foundation
+                in modern web technologies. I specialize in building scalable,
+                performant applications that solve real-world problems.
+              </p>
+              <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                With expertise in both frontend and backend development, I create
+                seamless user experiences while ensuring robust, maintainable code.
+                I'm always eager to learn new technologies and take on challenging
+                projects.
+              </p>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                When I'm not coding, you can find me exploring new frameworks,
+                contributing to open-source projects, or sharing knowledge with
+                the developer community.
+              </p>
+            </motion.div>
+          </div>
 
           <motion.div variants={itemVariants}>
             <h3 className="text-2xl font-semibold mb-6 text-center text-gray-200">
