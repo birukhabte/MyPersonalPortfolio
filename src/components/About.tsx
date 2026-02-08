@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import aboutImage from '../New folder/image.png'
+import aboutImage from '../assets/image.png'
 
 const techStack = [
   'React',
@@ -85,7 +85,7 @@ const About = () => {
                   alt="Profile"
                   className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full object-cover border-4 border-primary-500/50 shadow-2xl shadow-primary-500/20"
                   initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 />
               </motion.div>
