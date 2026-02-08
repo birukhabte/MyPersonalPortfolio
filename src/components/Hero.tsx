@@ -1,8 +1,46 @@
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FiDownload, FiArrowRight } from 'react-icons/fi'
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
 
 const Hero = () => {
+  const [displayedText, setDisplayedText] = useState('')
+  const [showCursor, setShowCursor] = useState(true)
+  const fullText = 'Biruk Habte'
+
+  useEffect(() => {
+    let currentIndex = 0
+    let timeoutId: number
+
+    const typeLetter = () => {
+      if (currentIndex < fullText.length) {
+        setDisplayedText(fullText.slice(0, currentIndex + 1))
+        currentIndex++
+        timeoutId = setTimeout(typeLetter, 100)
+      } else {
+        // Wait 2 seconds before restarting
+        setTimeout(() => {
+          currentIndex = 0
+          setDisplayedText('')
+          typeLetter()
+        }, 2000)
+      }
+    }
+
+    typeLetter()
+
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId)
+    }
+  }, [fullText])
+
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor((prev) => !prev)
+    }, 530)
+
+    return () => clearInterval(cursorInterval)
+  }, [])
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -39,6 +77,88 @@ const Hero = () => {
     >
       {/* Animated Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-900/20 via-gray-900 to-gray-900">
+        {/* Spider Web Pattern */}
+        <div className="spider-web spider-web-animated"></div>
+        
+        {/* Spider Web SVGs */}
+        <svg className="absolute top-0 left-0 w-full h-full opacity-10" style={{ pointerEvents: 'none' }}>
+          {/* Spider Web 1 - Top Left */}
+          <g transform="translate(10%, 15%)">
+            <line x1="0" y1="0" x2="150" y2="0" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="100" y2="100" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="0" y2="150" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="-100" y2="100" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="-150" y2="0" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="-100" y2="-100" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="0" y2="-150" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="100" y2="-100" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <circle cx="0" cy="0" r="2" fill="rgba(255,255,255,0.5)" />
+            <circle cx="0" cy="0" r="50" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
+            <circle cx="0" cy="0" r="100" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
+          </g>
+          
+          {/* Spider Web 2 - Top Right */}
+          <g transform="translate(85%, 20%)">
+            <line x1="0" y1="0" x2="120" y2="0" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="80" y2="80" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="0" y2="120" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="-80" y2="80" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="-120" y2="0" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="-80" y2="-80" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="0" y2="-120" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="80" y2="-80" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <circle cx="0" cy="0" r="2" fill="rgba(255,255,255,0.5)" />
+            <circle cx="0" cy="0" r="40" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
+            <circle cx="0" cy="0" r="80" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
+          </g>
+          
+          {/* Spider Web 3 - Bottom Left */}
+          <g transform="translate(15%, 75%)">
+            <line x1="0" y1="0" x2="130" y2="0" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="90" y2="90" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="0" y2="130" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="-90" y2="90" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="-130" y2="0" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="-90" y2="-90" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="0" y2="-130" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="90" y2="-90" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <circle cx="0" cy="0" r="2" fill="rgba(255,255,255,0.5)" />
+            <circle cx="0" cy="0" r="45" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
+            <circle cx="0" cy="0" r="90" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
+          </g>
+          
+          {/* Spider Web 4 - Bottom Right */}
+          <g transform="translate(80%, 80%)">
+            <line x1="0" y1="0" x2="110" y2="0" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="75" y2="75" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="0" y2="110" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="-75" y2="75" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="-110" y2="0" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="-75" y2="-75" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="0" y2="-110" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="75" y2="-75" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+            <circle cx="0" cy="0" r="2" fill="rgba(255,255,255,0.5)" />
+            <circle cx="0" cy="0" r="37" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
+            <circle cx="0" cy="0" r="75" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
+          </g>
+          
+          {/* Spider Web 5 - Center */}
+          <g transform="translate(50%, 50%)">
+            <line x1="0" y1="0" x2="140" y2="0" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="100" y2="100" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="0" y2="140" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="-100" y2="100" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="-140" y2="0" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="-100" y2="-100" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="0" y2="-140" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
+            <line x1="0" y1="0" x2="100" y2="-100" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
+            <circle cx="0" cy="0" r="2" fill="rgba(255,255,255,0.4)" />
+            <circle cx="0" cy="0" r="50" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="1" />
+            <circle cx="0" cy="0" r="100" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
+            <circle cx="0" cy="0" r="140" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
+          </g>
+        </svg>
+        
         <motion.div
           className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl"
           animate={{
@@ -86,7 +206,7 @@ const Hero = () => {
 
             <motion.h1
               variants={itemVariants}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 bg-gradient-to-r from-white via-gray-100 to-gray-400 bg-clip-text text-transparent"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-gray-100 to-gray-400 bg-clip-text text-transparent"
             >
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
@@ -101,7 +221,8 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.7 }}
               >
-                Your Name
+                {displayedText}
+                {showCursor && <span className="animate-pulse">|</span>}
               </motion.span>
             </motion.h1>
 
