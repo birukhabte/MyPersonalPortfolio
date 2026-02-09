@@ -151,7 +151,7 @@ const Skills = () => {
                     }}
                     className="glass-dark p-6 rounded-xl flex flex-col items-center justify-center gap-4 hover:bg-white/5 transition-colors"
                   >
-                    <div className="text-4xl text-gray-400 group-hover:text-primary-400 transition-colors duration-300">
+                    <div className="text-4xl transition-all duration-300 group-hover:scale-110">
                       {skill.icon}
                     </div>
                     <span className="text-lg font-medium text-gray-200 group-hover:text-white transition-colors">
