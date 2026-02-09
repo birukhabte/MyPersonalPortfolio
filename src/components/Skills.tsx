@@ -14,7 +14,7 @@ import {
   FaPhp,
   FaLaravel,
 } from 'react-icons/fa'
-import { SiTypescript, SiPostgresql, SiMongodb, SiTailwindcss, SiMysql, SiFirebase, SiExpress, SiNestjs, SiDjango, SiNextdotjs } from 'react-icons/si'
+import { SiTypescript, SiPostgresql, SiMongodb, SiTailwindcss, SiMysql, SiFirebase, SiExpress, SiNestjs, SiDjango, SiNextdotjs, SiPrisma, SiSupabase, SiGithub } from 'react-icons/si'
 
 interface Skill {
   name: string
@@ -43,19 +43,22 @@ const skills: Skill[] = [
   { name: 'PostgreSQL', icon: <SiPostgresql />, category: 'database' },
   { name: 'MySQL', icon: <SiMysql />, category: 'database' },
   { name: 'MongoDB', icon: <SiMongodb />, category: 'database' },
-  { name: 'Firebase', icon: <SiFirebase />, category: 'database' },
 
-  // Tools
+  // Tools & Version Control
+  { name: 'Git', icon: <FaTools />, category: 'tools' },
+  { name: 'GitHub', icon: <SiGithub />, category: 'tools' },
   { name: 'Docker', icon: <FaDocker />, category: 'tools' },
   { name: 'AWS', icon: <FaAws />, category: 'tools' },
-  { name: 'Git', icon: <FaTools />, category: 'tools' },
+  { name: 'Firebase', icon: <SiFirebase />, category: 'tools' },
+  { name: 'Prisma', icon: <SiPrisma />, category: 'tools' },
+  { name: 'Supabase', icon: <SiSupabase />, category: 'tools' },
 ]
 
 const categories = [
   { id: 'frontend', name: 'Frontend', icon: <FaReact /> },
   { id: 'backend', name: 'Backend', icon: <FaServer /> },
   { id: 'database', name: 'Database', icon: <FaDatabase /> },
-  { id: 'tools', name: 'Tools', icon: <FaTools /> },
+  { id: 'tools', name: 'Tools & Version Control', icon: <FaTools /> },
 ]
 
 const Skills = () => {
@@ -104,8 +107,8 @@ const Skills = () => {
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
                 className={`flex items-center gap-2 px-6 py-3 rounded-full text-lg font-medium transition-all duration-300 ${activeCategory === category.id
-                    ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/25 scale-105'
-                    : 'glass text-gray-400 hover:text-white hover:bg-white/10'
+                  ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/25 scale-105'
+                  : 'glass text-gray-400 hover:text-white hover:bg-white/10'
                   }`}
               >
                 {category.icon}
