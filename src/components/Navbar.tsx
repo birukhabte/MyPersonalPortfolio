@@ -59,8 +59,8 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? 'glass-dark shadow-lg py-3'
-          : 'bg-transparent py-5'
+        ? 'glass-dark shadow-lg py-3'
+        : 'bg-transparent py-5'
         }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,7 +71,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <img src={logo} alt="Portfolio Logo" className="h-10 w-auto" />
+            <img src={logo} alt="Portfolio Logo" className="h-40 w-auto brightness-110 contrast-125" />
           </motion.a>
 
           {/* Desktop Navigation */}
@@ -90,8 +90,8 @@ const Navbar = () => {
               >
                 <span
                   className={`transition-colors ${activeLink === link.name
-                      ? 'text-primary-400'
-                      : 'text-gray-300 hover:text-white'
+                    ? 'text-primary-400'
+                    : 'text-gray-300 hover:text-white'
                     }`}
                 >
                   {link.name}
@@ -138,8 +138,8 @@ const Navbar = () => {
                     handleLinkClick(link.name, link.href)
                   }}
                   className={`block px-2 py-1 rounded-lg transition-colors ${activeLink === link.name
-                      ? 'bg-primary-500/20 text-primary-400'
-                      : 'text-gray-300 hover:bg-gray-800 hover:text-white'
+                    ? 'bg-primary-500/20 text-primary-400'
+                    : 'text-gray-300 hover:bg-gray-800 hover:text-white'
                     }`}
                   whileHover={{ x: 4 }}
                 >
