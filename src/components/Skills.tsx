@@ -11,8 +11,10 @@ import {
   FaAws,
   FaDocker,
   FaServer,
+  FaPhp,
+  FaLaravel,
 } from 'react-icons/fa'
-import { SiTypescript, SiPostgresql, SiMongodb, SiTailwindcss, SiMysql, SiFirebase } from 'react-icons/si'
+import { SiTypescript, SiPostgresql, SiMongodb, SiTailwindcss, SiMysql, SiFirebase, SiExpress, SiNestjs, SiDjango } from 'react-icons/si'
 
 interface Skill {
   name: string
@@ -29,7 +31,12 @@ const skills: Skill[] = [
 
   // Backend
   { name: 'Node.js', icon: <FaNode />, category: 'backend' },
+  { name: 'Express.js', icon: <SiExpress />, category: 'backend' },
+  { name: 'NestJS', icon: <SiNestjs />, category: 'backend' },
+  { name: 'PHP', icon: <FaPhp />, category: 'backend' },
+  { name: 'Laravel', icon: <FaLaravel />, category: 'backend' },
   { name: 'Python', icon: <FaPython />, category: 'backend' },
+  { name: 'Django', icon: <SiDjango />, category: 'backend' },
 
   // Database
   { name: 'PostgreSQL', icon: <SiPostgresql />, category: 'database' },
