@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import {
   FaReact,
   FaNode,
@@ -61,6 +61,7 @@ const categories = [
 const Skills = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const [activeCategory, setActiveCategory] = useState('frontend')
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -96,56 +97,49 @@ const Skills = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-primary-400 to-primary-600 mx-auto rounded-full" />
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {categories.map((category) => {
-              const categorySkills = skills.filter(
-                (skill) => skill.category === category.id
-              )
-
-              return (
-                <motion.div
-                  key={category.id}
-                  variants={itemVariants}
-                  className="glass-dark rounded-2xl p-6 sm:p-8"
-                >
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="text-2xl text-primary-400">
-                      {category.icon}
-                    </div>
-                    <h3 className="text-2xl font-semibold text-gray-200">
-                      {category.name}
-                    </h3>
-                  </div>
-
-                  <div className="grid grid-cols-1 gap-4">
-                    {categorySkills.map((skill, index) => (
-                      <motion.div
-                        key={skill.name}
-                        className="glass rounded-lg p-4 hover:bg-white/10 transition-all"
-                        whileHover={{ scale: 1.05, y: -4 }}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={
-                          isInView
-                            ? { opacity: 1, y: 0 }
-                            : { opacity: 0, y: 20 }
-                        }
-                        transition={{ delay: index * 0.1 }}
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className="text-xl text-primary-400">
-                            {skill.icon}
-                          </div>
-                          <span className="font-semibold text-gray-200">
-                            {skill.name}
-                          </span>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-              )
-            })}
+          {/* Category Buttons */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`flex items-center gap-2 px-6 py-3 rounded-full text-lg font-medium transition-all duration-300 ${activeCategory === category.id
+                    ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/25 scale-105'
+                    : 'glass text-gray-400 hover:text-white hover:bg-white/10'
+                  }`}
+              >
+                {category.icon}
+                {category.name}
+              </button>
+            ))}
           </div>
+
+          {/* Skills Grid */}
+          <motion.div
+            layout
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
+          >
+            {skills
+              .filter((skill) => skill.category === activeCategory)
+              .map((skill, index) => (
+                <motion.div
+                  key={skill.name}
+                  layout
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  className="glass-dark p-6 rounded-xl flex flex-col items-center justify-center gap-4 hover:bg-white/5 transition-colors group"
+                >
+                  <div className="text-4xl text-gray-400 group-hover:text-primary-400 transition-colors duration-300">
+                    {skill.icon}
+                  </div>
+                  <span className="text-lg font-medium text-gray-200 group-hover:text-white transition-colors">
+                    {skill.name}
+                  </span>
+                </motion.div>
+              ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>
