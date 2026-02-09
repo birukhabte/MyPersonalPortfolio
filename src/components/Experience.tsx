@@ -47,9 +47,9 @@ const experienceItems: TimelineItem[] = [
   {
     id: 3,
     title: 'Backend Developer',
-    company: 'Company Name',
-    location: 'Location',
-    period: 'MM/YYYY - MM/YYYY',
+    company: 'Remote Client',
+    location: '',
+    period: '07/2025 – 09/2025',
     description: [
       'Developed and maintained RESTful APIs and microservices',
       'Implemented database schemas and optimized queries for performance',
@@ -156,7 +156,7 @@ const Experience = () => {
               <motion.div
                 key={item.id}
                 variants={itemVariants}
-                className="glass-dark rounded-2xl p-6 hover:bg-white/5 transition-all h-full flex flex-col"
+                className="glass-dark rounded-2xl p-6 border border-gray-700/50 hover:border-primary-400 hover:bg-white/5 transition-all duration-300 h-full flex flex-col"
                 whileHover={{ scale: 1.02, y: -4 }}
               >
                 <div className="mb-4">
