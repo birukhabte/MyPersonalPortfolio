@@ -137,12 +137,19 @@ const Skills = () => {
                     key={skill.name}
                     layout
                     initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ duration: 0.3 }}
-                    className="glass-dark p-6 rounded-xl flex flex-col items-center justify-center gap-4 hover:bg-white/5 transition-colors group cursor-pointer"
+                    animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
+                    exit={{ opacity: 0, scale: 0.5 }}
+                    transition={{
+                      opacity: { duration: 0.3 },
+                      scale: { duration: 0.3 },
+                      y: {
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: index * 0.1,
+                      },
+                    }}
+                    className="glass-dark p-6 rounded-xl flex flex-col items-center justify-center gap-4 hover:bg-white/5 transition-colors"
                   >
                     <div className="text-4xl text-gray-400 group-hover:text-primary-400 transition-colors duration-300">
                       {skill.icon}
