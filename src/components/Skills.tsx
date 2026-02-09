@@ -14,13 +14,14 @@ import {
   FaPhp,
   FaLaravel,
   FaCloud,
+  FaGlobe,
 } from 'react-icons/fa'
 import { SiTypescript, SiPostgresql, SiMongodb, SiTailwindcss, SiMysql, SiFirebase, SiExpress, SiNestjs, SiDjango, SiNextdotjs, SiPrisma, SiSupabase, SiGithub, SiVercel, SiNetlify, SiDigitalocean } from 'react-icons/si'
 
 interface Skill {
   name: string
   icon: React.ReactNode
-  category: 'frontend' | 'backend' | 'tools' | 'database' | 'cloud'
+  category: 'frontend' | 'backend' | 'tools' | 'database' | 'cloud' | 'all'
   color: string
 }
 
@@ -62,6 +63,7 @@ const skills: Skill[] = [
 ]
 
 const categories = [
+  { id: 'all', name: 'All', icon: <FaGlobe /> },
   { id: 'frontend', name: 'Frontend', icon: <FaReact /> },
   { id: 'backend', name: 'Backend', icon: <FaServer /> },
   { id: 'database', name: 'Database', icon: <FaDatabase /> },
@@ -72,7 +74,7 @@ const categories = [
 const Skills = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
-  const [activeCategory, setActiveCategory] = useState('frontend')
+  const [activeCategory, setActiveCategory] = useState('all')
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -132,7 +134,7 @@ const Skills = () => {
           >
             <AnimatePresence mode="popLayout">
               {skills
-                .filter((skill) => skill.category === activeCategory)
+                .filter((skill) => activeCategory === 'all' || skill.category === activeCategory)
                 .map((skill, index) => (
                   <motion.div
                     key={skill.name}
