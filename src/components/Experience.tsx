@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { FiBriefcase, FiBook } from 'react-icons/fi'
+import { FiBriefcase } from 'react-icons/fi'
 
 interface TimelineItem {
   id: number
-  type: 'experience' | 'education'
   title: string
   company: string
   location: string
@@ -14,10 +13,9 @@ interface TimelineItem {
   skills: string[]
 }
 
-const timelineItems: TimelineItem[] = [
+const experienceItems: TimelineItem[] = [
   {
     id: 1,
-    type: 'experience',
     title: 'Frontend Developer',
     company: 'Remote Client',
     location: 'Remote',
@@ -34,7 +32,6 @@ const timelineItems: TimelineItem[] = [
   },
   {
     id: 2,
-    type: 'experience',
     title: 'Full-Stack Developer',
     company: 'Orizen Technology',
     location: '',
@@ -49,7 +46,6 @@ const timelineItems: TimelineItem[] = [
   },
   {
     id: 3,
-    type: 'experience',
     title: 'Backend Developer',
     company: 'Company Name',
     location: 'Location',
@@ -64,7 +60,6 @@ const timelineItems: TimelineItem[] = [
   },
   {
     id: 4,
-    type: 'experience',
     title: 'Software Engineer',
     company: 'Company Name',
     location: 'Location',
@@ -79,7 +74,6 @@ const timelineItems: TimelineItem[] = [
   },
   {
     id: 5,
-    type: 'experience',
     title: 'Junior Developer',
     company: 'Company Name',
     location: 'Location',
@@ -94,7 +88,6 @@ const timelineItems: TimelineItem[] = [
   },
   {
     id: 6,
-    type: 'experience',
     title: 'Freelance Developer',
     company: 'Self-Employed',
     location: 'Remote',
@@ -106,34 +99,6 @@ const timelineItems: TimelineItem[] = [
       'Provided ongoing maintenance and support for client projects',
     ],
     skills: ['React', 'Next.js', 'Tailwind CSS', 'Firebase', 'Vercel'],
-  },
-  {
-    id: 7,
-    type: 'education',
-    title: 'Bachelor of Science in Computer Science',
-    company: 'University Name',
-    location: 'City, State',
-    period: '2016 - 2020',
-    description: [
-      'Graduated with honors (GPA: 3.8/4.0)',
-      'Relevant coursework: Data Structures, Algorithms, Database Systems',
-      'Senior project: Developed a real-time collaboration platform',
-    ],
-    skills: ['Java', 'Python', 'C++', 'Data Structures', 'Algorithms'],
-  },
-  {
-    id: 4,
-    type: 'education',
-    title: 'Web Development Bootcamp',
-    company: 'Coding Bootcamp',
-    location: 'Online',
-    period: '2019',
-    description: [
-      'Intensive 12-week program covering full-stack development',
-      'Built 5+ projects using modern web technologies',
-      'Learned agile development methodologies',
-    ],
-    skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js'],
   },
 ]
 
@@ -174,123 +139,63 @@ const Experience = () => {
         >
           <motion.div variants={itemVariants} className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              Experience & Education
+              Experience
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary-400 to-primary-600 mx-auto rounded-full" />
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-            {/* Experience Column */}
-            <div>
-              <h3 className="text-2xl font-semibold text-gray-200 mb-6 flex items-center gap-2">
-                <FiBriefcase className="text-primary-400" />
-                Experience
-              </h3>
-              <div className="space-y-6">
-                {timelineItems
-                  .filter((item) => item.type === 'experience')
-                  .map((item) => (
-                    <motion.div
-                      key={item.id}
-                      variants={itemVariants}
-                      className="glass-dark rounded-2xl p-6 hover:bg-white/5 transition-all"
-                      whileHover={{ scale: 1.02, y: -4 }}
+          {/* Experience Header */}
+          <motion.div variants={itemVariants} className="flex items-center gap-3 mb-8">
+            <FiBriefcase className="text-primary-400 text-2xl" />
+            <h3 className="text-2xl font-semibold text-gray-200">My Experience</h3>
+          </motion.div>
+
+          {/* Experience Grid - Parallel Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {experienceItems.map((item) => (
+              <motion.div
+                key={item.id}
+                variants={itemVariants}
+                className="glass-dark rounded-2xl p-6 hover:bg-white/5 transition-all h-full flex flex-col"
+                whileHover={{ scale: 1.02, y: -4 }}
+              >
+                <div className="mb-4">
+                  <h4 className="text-xl font-semibold text-gray-200 mb-1">
+                    {item.title}
+                  </h4>
+                  <p className="text-primary-400 font-medium mb-1">
+                    {item.company}
+                  </p>
+                  <p className="text-sm text-gray-400 mb-2">
+                    {item.location ? `${item.location} • ` : ''}{item.period}
+                  </p>
+                </div>
+
+                <ul className="space-y-2 flex-grow">
+                  {item.description.map((desc, idx) => (
+                    <li
+                      key={idx}
+                      className="text-gray-300 text-sm flex items-start gap-2"
                     >
-                      <div className="mb-4">
-                        <h4 className="text-xl font-semibold text-gray-200 mb-1">
-                          {item.title}
-                        </h4>
-                        <p className="text-primary-400 font-medium mb-1">
-                          {item.company}
-                        </p>
-                        <p className="text-sm text-gray-400 mb-2">
-                          {item.location} • {item.period}
-                        </p>
-                      </div>
-
-                      <ul className="space-y-2">
-                        {item.description.map((desc, idx) => (
-                          <li
-                            key={idx}
-                            className="text-gray-300 text-sm flex items-start gap-2"
-                          >
-                            <span className="text-primary-400 mt-1.5">▹</span>
-                            <span>{desc}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      {/* Skills Tags */}
-                      <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-700/50">
-                        {item.skills.map((skill, idx) => (
-                          <span
-                            key={idx}
-                            className="px-3 py-1 text-xs font-medium rounded-full bg-primary-500/10 text-primary-400 border border-primary-500/20"
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </motion.div>
+                      <span className="text-primary-400 mt-1.5">▹</span>
+                      <span>{desc}</span>
+                    </li>
                   ))}
-              </div>
-            </div>
+                </ul>
 
-            {/* Education Column */}
-            <div>
-              <h3 className="text-2xl font-semibold text-gray-200 mb-6 flex items-center gap-2">
-                <FiBook className="text-purple-400" />
-                Education
-              </h3>
-              <div className="space-y-6">
-                {timelineItems
-                  .filter((item) => item.type === 'education')
-                  .map((item) => (
-                    <motion.div
-                      key={item.id}
-                      variants={itemVariants}
-                      className="glass-dark rounded-2xl p-6 hover:bg-white/5 transition-all"
-                      whileHover={{ scale: 1.02, y: -4 }}
+                {/* Skills Tags */}
+                <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-700/50">
+                  {item.skills.map((skill, idx) => (
+                    <span
+                      key={idx}
+                      className="px-3 py-1 text-xs font-medium rounded-full bg-primary-500/10 text-primary-400 border border-primary-500/20"
                     >
-                      <div className="mb-4">
-                        <h4 className="text-xl font-semibold text-gray-200 mb-1">
-                          {item.title}
-                        </h4>
-                        <p className="text-purple-400 font-medium mb-1">
-                          {item.company}
-                        </p>
-                        <p className="text-sm text-gray-400 mb-2">
-                          {item.location} • {item.period}
-                        </p>
-                      </div>
-
-                      <ul className="space-y-2">
-                        {item.description.map((desc, idx) => (
-                          <li
-                            key={idx}
-                            className="text-gray-300 text-sm flex items-start gap-2"
-                          >
-                            <span className="text-purple-400 mt-1.5">▹</span>
-                            <span>{desc}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      {/* Skills Tags */}
-                      <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-700/50">
-                        {item.skills.map((skill, idx) => (
-                          <span
-                            key={idx}
-                            className="px-3 py-1 text-xs font-medium rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20"
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </motion.div>
+                      {skill}
+                    </span>
                   ))}
-              </div>
-            </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>
