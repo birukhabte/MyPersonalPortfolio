@@ -36,15 +36,16 @@ const timelineItems: TimelineItem[] = [
     id: 2,
     type: 'experience',
     title: 'Full-Stack Developer',
-    company: 'Startup XYZ',
-    location: 'San Francisco, CA',
-    period: '2020 - 2022',
+    company: 'Orizen Technology',
+    location: '',
+    period: '03/2024 – 09/2025',
     description: [
-      'Built and maintained multiple client-facing applications',
-      'Implemented RESTful APIs and database schemas',
-      'Optimized application performance and reduced load times by 40%',
+      'Built and maintained web and mobile applications, working across front-end and back-end systems to deliver scalable, high-performance solutions',
+      'Developed responsive user interfaces using modern front-end frameworks and implemented robust backend APIs and database solutions',
+      'Collaborated with designers and backend engineers to create seamless experiences for users and optimize business processes',
+      'Integrated third-party services, implemented authentication systems, and optimized application performance for better user experience',
     ],
-    skills: ['JavaScript', 'Express.js', 'PostgreSQL', 'Docker', 'Git'],
+    skills: ['React', 'Node.js', "Express", 'MongoDb', 'TypeScript',],
   },
   {
     id: 3,
@@ -118,87 +119,116 @@ const Experience = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-primary-400 to-primary-600 mx-auto rounded-full" />
           </motion.div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="relative">
-              {/* Timeline Line */}
-              <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 via-primary-400 to-primary-500 transform md:-translate-x-1/2" />
-
-              {/* Timeline Items */}
-              <div className="space-y-12">
-                {timelineItems.map((item, index) => (
-                  <motion.div
-                    key={item.id}
-                    variants={itemVariants}
-                    className={`relative flex items-start ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                      }`}
-                  >
-                    {/* Timeline Dot */}
-                    <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 z-10">
-                      <div className="w-4 h-4 rounded-full bg-primary-500 border-4 border-gray-900" />
-                    </div>
-
-                    {/* Content Card */}
-                    <div
-                      className={`w-full md:w-5/12 ml-16 md:ml-0 ${index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
-                        }`}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+            {/* Experience Column */}
+            <div>
+              <h3 className="text-2xl font-semibold text-gray-200 mb-6 flex items-center gap-2">
+                <FiBriefcase className="text-primary-400" />
+                Experience
+              </h3>
+              <div className="space-y-6">
+                {timelineItems
+                  .filter((item) => item.type === 'experience')
+                  .map((item) => (
+                    <motion.div
+                      key={item.id}
+                      variants={itemVariants}
+                      className="glass-dark rounded-2xl p-6 hover:bg-white/5 transition-all"
+                      whileHover={{ scale: 1.02, y: -4 }}
                     >
-                      <motion.div
-                        className="glass-dark rounded-2xl p-6 hover:bg-white/5 transition-all"
-                        whileHover={{ scale: 1.02, y: -4 }}
-                      >
-                        <div className="flex items-start gap-4 mb-4">
-                          <div
-                            className={`p-3 rounded-lg ${item.type === 'experience'
-                              ? 'bg-primary-500/20 text-primary-400'
-                              : 'bg-purple-500/20 text-purple-400'
-                              }`}
+                      <div className="mb-4">
+                        <h4 className="text-xl font-semibold text-gray-200 mb-1">
+                          {item.title}
+                        </h4>
+                        <p className="text-primary-400 font-medium mb-1">
+                          {item.company}
+                        </p>
+                        <p className="text-sm text-gray-400 mb-2">
+                          {item.location} • {item.period}
+                        </p>
+                      </div>
+
+                      <ul className="space-y-2">
+                        {item.description.map((desc, idx) => (
+                          <li
+                            key={idx}
+                            className="text-gray-300 text-sm flex items-start gap-2"
                           >
-                            {item.type === 'experience' ? (
-                              <FiBriefcase size={24} />
-                            ) : (
-                              <FiBook size={24} />
-                            )}
-                          </div>
-                          <div className="flex-1">
-                            <h3 className="text-xl font-semibold text-gray-200 mb-1">
-                              {item.title}
-                            </h3>
-                            <p className="text-primary-400 font-medium mb-1">
-                              {item.company}
-                            </p>
-                            <p className="text-sm text-gray-400 mb-2">
-                              {item.location} • {item.period}
-                            </p>
-                          </div>
-                        </div>
+                            <span className="text-primary-400 mt-1.5">▹</span>
+                            <span>{desc}</span>
+                          </li>
+                        ))}
+                      </ul>
 
-                        <ul className="space-y-2">
-                          {item.description.map((desc, idx) => (
-                            <li
-                              key={idx}
-                              className="text-gray-300 text-sm flex items-start gap-2"
-                            >
-                              <span className="text-primary-400 mt-1.5">▹</span>
-                              <span>{desc}</span>
-                            </li>
-                          ))}
-                        </ul>
+                      {/* Skills Tags */}
+                      <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-700/50">
+                        {item.skills.map((skill, idx) => (
+                          <span
+                            key={idx}
+                            className="px-3 py-1 text-xs font-medium rounded-full bg-primary-500/10 text-primary-400 border border-primary-500/20"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </motion.div>
+                  ))}
+              </div>
+            </div>
 
-                        {/* Skills Tags */}
-                        <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-700/50">
-                          {item.skills.map((skill, idx) => (
-                            <span
-                              key={idx}
-                              className="px-3 py-1 text-xs font-medium rounded-full bg-primary-500/10 text-primary-400 border border-primary-500/20"
-                            >
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-                      </motion.div>
-                    </div>
-                  </motion.div>
-                ))}
+            {/* Education Column */}
+            <div>
+              <h3 className="text-2xl font-semibold text-gray-200 mb-6 flex items-center gap-2">
+                <FiBook className="text-purple-400" />
+                Education
+              </h3>
+              <div className="space-y-6">
+                {timelineItems
+                  .filter((item) => item.type === 'education')
+                  .map((item) => (
+                    <motion.div
+                      key={item.id}
+                      variants={itemVariants}
+                      className="glass-dark rounded-2xl p-6 hover:bg-white/5 transition-all"
+                      whileHover={{ scale: 1.02, y: -4 }}
+                    >
+                      <div className="mb-4">
+                        <h4 className="text-xl font-semibold text-gray-200 mb-1">
+                          {item.title}
+                        </h4>
+                        <p className="text-purple-400 font-medium mb-1">
+                          {item.company}
+                        </p>
+                        <p className="text-sm text-gray-400 mb-2">
+                          {item.location} • {item.period}
+                        </p>
+                      </div>
+
+                      <ul className="space-y-2">
+                        {item.description.map((desc, idx) => (
+                          <li
+                            key={idx}
+                            className="text-gray-300 text-sm flex items-start gap-2"
+                          >
+                            <span className="text-purple-400 mt-1.5">▹</span>
+                            <span>{desc}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* Skills Tags */}
+                      <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-700/50">
+                        {item.skills.map((skill, idx) => (
+                          <span
+                            key={idx}
+                            className="px-3 py-1 text-xs font-medium rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </motion.div>
+                  ))}
               </div>
             </div>
           </div>
