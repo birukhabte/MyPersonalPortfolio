@@ -13,13 +13,14 @@ import {
   FaServer,
   FaPhp,
   FaLaravel,
+  FaCloud,
 } from 'react-icons/fa'
-import { SiTypescript, SiPostgresql, SiMongodb, SiTailwindcss, SiMysql, SiFirebase, SiExpress, SiNestjs, SiDjango, SiNextdotjs, SiPrisma, SiSupabase, SiGithub } from 'react-icons/si'
+import { SiTypescript, SiPostgresql, SiMongodb, SiTailwindcss, SiMysql, SiFirebase, SiExpress, SiNestjs, SiDjango, SiNextdotjs, SiPrisma, SiSupabase, SiGithub, SiVercel, SiNetlify, SiDigitalocean } from 'react-icons/si'
 
 interface Skill {
   name: string
   icon: React.ReactNode
-  category: 'frontend' | 'backend' | 'tools' | 'database'
+  category: 'frontend' | 'backend' | 'tools' | 'database' | 'cloud'
 }
 
 const skills: Skill[] = [
@@ -48,16 +49,22 @@ const skills: Skill[] = [
   { name: 'Git', icon: <FaTools />, category: 'tools' },
   { name: 'GitHub', icon: <SiGithub />, category: 'tools' },
   { name: 'Docker', icon: <FaDocker />, category: 'tools' },
-  { name: 'AWS', icon: <FaAws />, category: 'tools' },
-  { name: 'Firebase', icon: <SiFirebase />, category: 'tools' },
   { name: 'Prisma', icon: <SiPrisma />, category: 'tools' },
   { name: 'Supabase', icon: <SiSupabase />, category: 'tools' },
+
+  // Cloud & Hosting
+  { name: 'Vercel', icon: <SiVercel />, category: 'cloud' },
+  { name: 'Netlify', icon: <SiNetlify />, category: 'cloud' },
+  { name: 'Firebase Hosting', icon: <SiFirebase />, category: 'cloud' },
+  { name: 'AWS', icon: <FaAws />, category: 'cloud' },
+  { name: 'DigitalOcean', icon: <SiDigitalocean />, category: 'cloud' },
 ]
 
 const categories = [
   { id: 'frontend', name: 'Frontend', icon: <FaReact /> },
   { id: 'backend', name: 'Backend', icon: <FaServer /> },
   { id: 'database', name: 'Database', icon: <FaDatabase /> },
+  { id: 'cloud', name: 'Cloud & Hosting', icon: <FaCloud /> },
   { id: 'tools', name: 'Tools & Version Control', icon: <FaTools /> },
 ]
 
