@@ -11,13 +11,14 @@ interface TimelineItem {
   location: string
   period: string
   description: string[]
+  skills: string[]
 }
 
 const timelineItems: TimelineItem[] = [
   {
     id: 1,
     type: 'experience',
-    title: 'Senior Full-Stack Developer',
+    title: 'Frontend Developer',
     company: 'Tech Company Inc.',
     location: 'Remote',
     period: '2022 - Present',
@@ -26,6 +27,7 @@ const timelineItems: TimelineItem[] = [
       'Collaborated with cross-functional teams to deliver high-quality products',
       'Mentored junior developers and conducted code reviews',
     ],
+    skills: ['React', 'Node.js', 'TypeScript', 'MongoDB', 'AWS'],
   },
   {
     id: 2,
@@ -39,6 +41,7 @@ const timelineItems: TimelineItem[] = [
       'Implemented RESTful APIs and database schemas',
       'Optimized application performance and reduced load times by 40%',
     ],
+    skills: ['JavaScript', 'Express.js', 'PostgreSQL', 'Docker', 'Git'],
   },
   {
     id: 3,
@@ -52,6 +55,7 @@ const timelineItems: TimelineItem[] = [
       'Relevant coursework: Data Structures, Algorithms, Database Systems',
       'Senior project: Developed a real-time collaboration platform',
     ],
+    skills: ['Java', 'Python', 'C++', 'Data Structures', 'Algorithms'],
   },
   {
     id: 4,
@@ -65,6 +69,7 @@ const timelineItems: TimelineItem[] = [
       'Built 5+ projects using modern web technologies',
       'Learned agile development methodologies',
     ],
+    skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js'],
   },
 ]
 
@@ -121,9 +126,8 @@ const Experience = () => {
                   <motion.div
                     key={item.id}
                     variants={itemVariants}
-                    className={`relative flex items-start ${
-                      index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                    }`}
+                    className={`relative flex items-start ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                      }`}
                   >
                     {/* Timeline Dot */}
                     <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 z-10">
@@ -132,9 +136,8 @@ const Experience = () => {
 
                     {/* Content Card */}
                     <div
-                      className={`w-full md:w-5/12 ml-16 md:ml-0 ${
-                        index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
-                      }`}
+                      className={`w-full md:w-5/12 ml-16 md:ml-0 ${index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
+                        }`}
                     >
                       <motion.div
                         className="glass-dark rounded-2xl p-6 hover:bg-white/5 transition-all"
@@ -142,11 +145,10 @@ const Experience = () => {
                       >
                         <div className="flex items-start gap-4 mb-4">
                           <div
-                            className={`p-3 rounded-lg ${
-                              item.type === 'experience'
-                                ? 'bg-primary-500/20 text-primary-400'
-                                : 'bg-purple-500/20 text-purple-400'
-                            }`}
+                            className={`p-3 rounded-lg ${item.type === 'experience'
+                              ? 'bg-primary-500/20 text-primary-400'
+                              : 'bg-purple-500/20 text-purple-400'
+                              }`}
                           >
                             {item.type === 'experience' ? (
                               <FiBriefcase size={24} />
@@ -178,6 +180,18 @@ const Experience = () => {
                             </li>
                           ))}
                         </ul>
+
+                        {/* Skills Tags */}
+                        <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-700/50">
+                          {item.skills.map((skill, idx) => (
+                            <span
+                              key={idx}
+                              className="px-3 py-1 text-xs font-medium rounded-full bg-primary-500/10 text-primary-400 border border-primary-500/20"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
                       </motion.div>
                     </div>
                   </motion.div>
