@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import {
@@ -129,26 +129,30 @@ const Skills = () => {
             layout
             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
           >
-            {skills
-              .filter((skill) => skill.category === activeCategory)
-              .map((skill, index) => (
-                <motion.div
-                  key={skill.name}
-                  layout
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="glass-dark p-6 rounded-xl flex flex-col items-center justify-center gap-4 hover:bg-white/5 transition-colors group"
-                >
-                  <div className="text-4xl text-gray-400 group-hover:text-primary-400 transition-colors duration-300">
-                    {skill.icon}
-                  </div>
-                  <span className="text-lg font-medium text-gray-200 group-hover:text-white transition-colors">
-                    {skill.name}
-                  </span>
-                </motion.div>
-              ))}
+            <AnimatePresence mode="popLayout">
+              {skills
+                .filter((skill) => skill.category === activeCategory)
+                .map((skill, index) => (
+                  <motion.div
+                    key={skill.name}
+                    layout
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.3 }}
+                    className="glass-dark p-6 rounded-xl flex flex-col items-center justify-center gap-4 hover:bg-white/5 transition-colors group cursor-pointer"
+                  >
+                    <div className="text-4xl text-gray-400 group-hover:text-primary-400 transition-colors duration-300">
+                      {skill.icon}
+                    </div>
+                    <span className="text-lg font-medium text-gray-200 group-hover:text-white transition-colors">
+                      {skill.name}
+                    </span>
+                  </motion.div>
+                ))}
+            </AnimatePresence>
           </motion.div>
         </motion.div>
       </div>
