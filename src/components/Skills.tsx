@@ -10,13 +10,14 @@ import {
   FaPython,
   FaAws,
   FaDocker,
+  FaServer,
 } from 'react-icons/fa'
-import { SiTypescript, SiPostgresql, SiMongodb, SiTailwindcss } from 'react-icons/si'
+import { SiTypescript, SiPostgresql, SiMongodb, SiTailwindcss, SiMysql, SiFirebase } from 'react-icons/si'
 
 interface Skill {
   name: string
   icon: React.ReactNode
-  category: 'frontend' | 'backend' | 'tools'
+  category: 'frontend' | 'backend' | 'tools' | 'database'
 }
 
 const skills: Skill[] = [
@@ -25,13 +26,17 @@ const skills: Skill[] = [
   { name: 'TypeScript', icon: <SiTypescript />, category: 'frontend' },
   { name: 'Tailwind CSS', icon: <SiTailwindcss />, category: 'frontend' },
   { name: 'JavaScript', icon: <FaJs />, category: 'frontend' },
-  
+
   // Backend
   { name: 'Node.js', icon: <FaNode />, category: 'backend' },
-  { name: 'PostgreSQL', icon: <SiPostgresql />, category: 'backend' },
-  { name: 'MongoDB', icon: <SiMongodb />, category: 'backend' },
   { name: 'Python', icon: <FaPython />, category: 'backend' },
-  
+
+  // Database
+  { name: 'PostgreSQL', icon: <SiPostgresql />, category: 'database' },
+  { name: 'MySQL', icon: <SiMysql />, category: 'database' },
+  { name: 'MongoDB', icon: <SiMongodb />, category: 'database' },
+  { name: 'Firebase', icon: <SiFirebase />, category: 'database' },
+
   // Tools
   { name: 'Docker', icon: <FaDocker />, category: 'tools' },
   { name: 'AWS', icon: <FaAws />, category: 'tools' },
@@ -40,7 +45,8 @@ const skills: Skill[] = [
 
 const categories = [
   { id: 'frontend', name: 'Frontend', icon: <FaReact /> },
-  { id: 'backend', name: 'Backend', icon: <FaDatabase /> },
+  { id: 'backend', name: 'Backend', icon: <FaServer /> },
+  { id: 'database', name: 'Database', icon: <FaDatabase /> },
   { id: 'tools', name: 'Tools', icon: <FaTools /> },
 ]
 
@@ -82,7 +88,7 @@ const Skills = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-primary-400 to-primary-600 mx-auto rounded-full" />
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {categories.map((category) => {
               const categorySkills = skills.filter(
                 (skill) => skill.category === category.id
