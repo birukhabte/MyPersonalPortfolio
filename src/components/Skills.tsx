@@ -14,7 +14,7 @@ import {
   FaPhp,
   FaLaravel,
 } from 'react-icons/fa'
-import { SiTypescript, SiPostgresql, SiMongodb, SiTailwindcss, SiMysql, SiFirebase, SiExpress, SiNestjs, SiDjango } from 'react-icons/si'
+import { SiTypescript, SiPostgresql, SiMongodb, SiTailwindcss, SiMysql, SiFirebase, SiExpress, SiNestjs, SiDjango, SiNextdotjs } from 'react-icons/si'
 
 interface Skill {
   name: string
@@ -25,6 +25,7 @@ interface Skill {
 const skills: Skill[] = [
   // Frontend
   { name: 'React', icon: <FaReact />, category: 'frontend' },
+  { name: 'Next.js', icon: <SiNextdotjs />, category: 'frontend' },
   { name: 'TypeScript', icon: <SiTypescript />, category: 'frontend' },
   { name: 'Tailwind CSS', icon: <SiTailwindcss />, category: 'frontend' },
   { name: 'JavaScript', icon: <FaJs />, category: 'frontend' },
