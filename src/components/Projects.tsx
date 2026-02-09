@@ -23,7 +23,7 @@ const projects: Project[] = [
       'A full-stack e-commerce solution with payment integration, user authentication, and admin dashboard.',
     image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800',
     tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-    github: 'https://github.com',
+    github: 'https://github.com/birukhabte/MyPersonalPortfolio',
     live: 'https://example.com',
     category: 'fullstack',
   },
@@ -140,11 +140,10 @@ const Projects = () => {
                 <motion.button
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
-                  className={`px-6 py-2 rounded-lg font-medium transition-all ${
-                    activeCategory === category.id
+                  className={`px-6 py-2 rounded-lg font-medium transition-all ${activeCategory === category.id
                       ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/50'
                       : 'glass text-gray-300 hover:text-white hover:bg-white/10'
-                  }`}
+                    }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
