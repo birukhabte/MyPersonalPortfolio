@@ -71,7 +71,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <img src={logo} alt="Portfolio Logo" className="h-40 w-auto brightness-110 contrast-125" />
+            <img src={logo} alt="Portfolio Logo" className="h-20 w-auto brightness-110 contrast-125" />
           </motion.a>
 
           {/* Desktop Navigation */}
