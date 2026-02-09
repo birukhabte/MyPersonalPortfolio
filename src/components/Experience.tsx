@@ -30,7 +30,7 @@ const timelineItems: TimelineItem[] = [
       'Integrated frontend components with REST APIs and backend services',
       'Maintained clean, reusable, and scalable component-based architecture',
     ],
-    skills: ['React', 'Node.js', 'TypeScript', 'MongoDB', 'AWS'],
+    skills: ['React.js', 'Tailwind CSS', 'JavaScript', 'Framer Motion', 'REST APIs'],
   },
   {
     id: 2,
