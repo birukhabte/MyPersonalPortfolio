@@ -61,7 +61,7 @@ const experienceItems: TimelineItem[] = [
   {
     id: 4,
     title: 'Software Engineer',
-    company: 'Company Name',
+    company: 'Company ',
     location: 'Location',
     period: 'MM/YYYY - MM/YYYY',
     description: [
@@ -74,17 +74,17 @@ const experienceItems: TimelineItem[] = [
   },
   {
     id: 5,
-    title: 'Junior Developer',
-    company: 'Company Name',
-    location: 'Location',
-    period: 'MM/YYYY - MM/YYYY',
+    title: 'Junior Full Stack Developer',
+    company: 'Efuye Gela Tech Company',
+    location: '',
+    period: '05/2024 – 02/2025',
     description: [
       'Assisted in developing web applications and features',
       'Fixed bugs and improved code quality',
       'Learned best practices in software development',
       'Collaborated with senior developers on various projects',
     ],
-    skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Git'],
+    skills: ['JavaScript', 'React', 'Git', 'Node.js', 'Express', 'MongoDb', 'TypeScript'],
   },
   {
     id: 6,
