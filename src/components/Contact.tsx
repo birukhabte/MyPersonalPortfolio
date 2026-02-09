@@ -19,7 +19,7 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false)
@@ -94,7 +94,8 @@ const Contact = () => {
                     <div>
                       <p className="text-sm text-gray-400">Email</p>
                       <p className="text-gray-200 group-hover:text-primary-400 transition-colors">
-                        your.email@example.com
+                        biruk.habte-ug@aau.edu.et
+
                       </p>
                     </div>
                   </motion.a>
