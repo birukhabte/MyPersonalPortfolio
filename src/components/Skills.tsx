@@ -21,43 +21,44 @@ interface Skill {
   name: string
   icon: React.ReactNode
   category: 'frontend' | 'backend' | 'tools' | 'database' | 'cloud'
+  color: string
 }
 
 const skills: Skill[] = [
   // Frontend
-  { name: 'React', icon: <FaReact />, category: 'frontend' },
-  { name: 'Next.js', icon: <SiNextdotjs />, category: 'frontend' },
-  { name: 'TypeScript', icon: <SiTypescript />, category: 'frontend' },
-  { name: 'Tailwind CSS', icon: <SiTailwindcss />, category: 'frontend' },
-  { name: 'JavaScript', icon: <FaJs />, category: 'frontend' },
+  { name: 'React', icon: <FaReact />, category: 'frontend', color: '#61DAFB' },
+  { name: 'Next.js', icon: <SiNextdotjs />, category: 'frontend', color: '#000000' },
+  { name: 'TypeScript', icon: <SiTypescript />, category: 'frontend', color: '#3178C6' },
+  { name: 'Tailwind CSS', icon: <SiTailwindcss />, category: 'frontend', color: '#06B6D4' },
+  { name: 'JavaScript', icon: <FaJs />, category: 'frontend', color: '#F7DF1E' },
 
   // Backend
-  { name: 'Node.js', icon: <FaNode />, category: 'backend' },
-  { name: 'Express.js', icon: <SiExpress />, category: 'backend' },
-  { name: 'NestJS', icon: <SiNestjs />, category: 'backend' },
-  { name: 'PHP', icon: <FaPhp />, category: 'backend' },
-  { name: 'Laravel', icon: <FaLaravel />, category: 'backend' },
-  { name: 'Python', icon: <FaPython />, category: 'backend' },
-  { name: 'Django', icon: <SiDjango />, category: 'backend' },
+  { name: 'Node.js', icon: <FaNode />, category: 'backend', color: '#339933' },
+  { name: 'Express.js', icon: <SiExpress />, category: 'backend', color: '#000000' },
+  { name: 'NestJS', icon: <SiNestjs />, category: 'backend', color: '#E0234E' },
+  { name: 'PHP', icon: <FaPhp />, category: 'backend', color: '#777BB4' },
+  { name: 'Laravel', icon: <FaLaravel />, category: 'backend', color: '#FF2D20' },
+  { name: 'Python', icon: <FaPython />, category: 'backend', color: '#3776AB' },
+  { name: 'Django', icon: <SiDjango />, category: 'backend', color: '#092E20' },
 
   // Database
-  { name: 'PostgreSQL', icon: <SiPostgresql />, category: 'database' },
-  { name: 'MySQL', icon: <SiMysql />, category: 'database' },
-  { name: 'MongoDB', icon: <SiMongodb />, category: 'database' },
+  { name: 'PostgreSQL', icon: <SiPostgresql />, category: 'database', color: '#4169E1' },
+  { name: 'MySQL', icon: <SiMysql />, category: 'database', color: '#4479A1' },
+  { name: 'MongoDB', icon: <SiMongodb />, category: 'database', color: '#47A248' },
 
   // Tools & Version Control
-  { name: 'Git', icon: <FaTools />, category: 'tools' },
-  { name: 'GitHub', icon: <SiGithub />, category: 'tools' },
-  { name: 'Docker', icon: <FaDocker />, category: 'tools' },
-  { name: 'Prisma', icon: <SiPrisma />, category: 'tools' },
-  { name: 'Supabase', icon: <SiSupabase />, category: 'tools' },
+  { name: 'Git', icon: <FaTools />, category: 'tools', color: '#F05032' },
+  { name: 'GitHub', icon: <SiGithub />, category: 'tools', color: '#181717' },
+  { name: 'Docker', icon: <FaDocker />, category: 'tools', color: '#2496ED' },
+  { name: 'Prisma', icon: <SiPrisma />, category: 'tools', color: '#2D3748' },
+  { name: 'Supabase', icon: <SiSupabase />, category: 'tools', color: '#3ECF8E' },
 
   // Cloud & Hosting
-  { name: 'Vercel', icon: <SiVercel />, category: 'cloud' },
-  { name: 'Netlify', icon: <SiNetlify />, category: 'cloud' },
-  { name: 'Firebase Hosting', icon: <SiFirebase />, category: 'cloud' },
-  { name: 'AWS', icon: <FaAws />, category: 'cloud' },
-  { name: 'DigitalOcean', icon: <SiDigitalocean />, category: 'cloud' },
+  { name: 'Vercel', icon: <SiVercel />, category: 'cloud', color: '#000000' },
+  { name: 'Netlify', icon: <SiNetlify />, category: 'cloud', color: '#00C7B7' },
+  { name: 'Firebase Hosting', icon: <SiFirebase />, category: 'cloud', color: '#FFCA28' },
+  { name: 'AWS', icon: <FaAws />, category: 'cloud', color: '#FF9900' },
+  { name: 'DigitalOcean', icon: <SiDigitalocean />, category: 'cloud', color: '#0080FF' },
 ]
 
 const categories = [
@@ -151,7 +152,7 @@ const Skills = () => {
                     }}
                     className="glass-dark p-6 rounded-xl flex flex-col items-center justify-center gap-4 hover:bg-white/5 transition-colors"
                   >
-                    <div className="text-4xl transition-all duration-300 group-hover:scale-110">
+                    <div className="text-4xl transition-all duration-300 group-hover:scale-110" style={{ color: skill.color }}>
                       {skill.icon}
                     </div>
                     <span className="text-lg font-medium text-gray-200 group-hover:text-white transition-colors">
