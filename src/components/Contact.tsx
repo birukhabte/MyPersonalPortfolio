@@ -109,7 +109,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-gray-400">Location</p>
-                      <p className="text-gray-200">Your City, Country</p>
+                      <p className="text-gray-200">Addis Ababa, Ethiopia</p>
                     </div>
                   </motion.div>
 
@@ -124,7 +124,7 @@ const Contact = () => {
                     <div>
                       <p className="text-sm text-gray-400">Phone</p>
                       <p className="text-gray-200 group-hover:text-primary-400 transition-colors">
-                        +1 (234) 567-890
+                        +251 995871152
                       </p>
                     </div>
                   </motion.a>
