@@ -27,7 +27,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
             <p className="text-gray-400 text-sm">
-              © {currentYear} Your Name. All rights reserved.
+              © {currentYear} Biruk. All rights reserved.
             </p>
             <p className="text-gray-500 text-xs mt-1">
               Built with React, TypeScript, and Tailwind CSS
