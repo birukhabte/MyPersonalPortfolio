@@ -1,9 +1,12 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { FiSend, FiMail, FiMapPin, FiPhone } from 'react-icons/fi'
+import { FiSend, FiMail, FiMapPin, FiPhone, FiCheckCircle, FiAlertCircle } from 'react-icons/fi'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+
+// ⚠️ REPLACE THIS with your actual Formspree form ID from https://formspree.io
+const FORMSPREE_FORM_ID = 'YOUR_FORM_ID'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +15,8 @@ const Contact = () => {
     message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [statusMessage, setStatusMessage] = useState('')
 
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
@@ -19,13 +24,45 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitStatus('idle')
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const response = await fetch(`https://formspree.io/f/mqedeavo`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setStatusMessage("Thank you for your message! I'll get back to you soon.")
+        setFormData({ name: '', email: '', message: '' })
+      } else {
+        const data = await response.json()
+        throw new Error(data.error || 'Something went wrong')
+      }
+    } catch (error) {
+      setSubmitStatus('error')
+      setStatusMessage(
+        error instanceof Error
+          ? error.message
+          : 'Failed to send message. Please try again or email me directly.'
+      )
+    } finally {
       setIsSubmitting(false)
-      setFormData({ name: '', email: '', message: '' })
-      alert('Thank you for your message! I\'ll get back to you soon.')
-    }, 1000)
+      // Auto-dismiss status message after 6 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle')
+        setStatusMessage('')
+      }, 6000)
+    }
   }
 
   const handleChange = (
@@ -235,6 +272,29 @@ const Contact = () => {
                     </>
                   )}
                 </motion.button>
+
+                {/* Status Message */}
+                <AnimatePresence>
+                  {submitStatus !== 'idle' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.3 }}
+                      className={`flex items-center gap-3 p-4 rounded-lg ${submitStatus === 'success'
+                        ? 'bg-green-500/10 border border-green-500/30 text-green-400'
+                        : 'bg-red-500/10 border border-red-500/30 text-red-400'
+                        }`}
+                    >
+                      {submitStatus === 'success' ? (
+                        <FiCheckCircle size={20} className="flex-shrink-0" />
+                      ) : (
+                        <FiAlertCircle size={20} className="flex-shrink-0" />
+                      )}
+                      <p className="text-sm">{statusMessage}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </form>
             </motion.div>
           </div>
