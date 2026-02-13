@@ -66,7 +66,7 @@ const Hero = () => {
     const cvUrl = '/cv.pdf'
     const link = document.createElement('a')
     link.href = cvUrl
-    link.download = 'CV.pdf'
+    link.download = 'file:///C:/Users/Biruk/Downloads/Biruk-Habte-FlowCV-Resume-20260213.pdf'
     link.click()
   }
 
