@@ -175,7 +175,7 @@ const Contact = () => {
                 </h3>
                 <div className="flex gap-4">
                   {[
-                    { icon: <FaGithub />, href: 'https://github.com', label: 'GitHub' },
+                    { icon: <FaGithub />, href: 'https://github.com/birukhabte', label: 'GitHub' },
                     { icon: <FaLinkedin />, href: 'https://linkedin.com', label: 'LinkedIn' },
                     { icon: <FaTwitter />, href: 'https://twitter.com', label: 'Twitter' },
                   ].map((social) => (
