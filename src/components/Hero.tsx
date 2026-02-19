@@ -267,8 +267,8 @@ const Hero = () => {
             className="flex items-center justify-center gap-6"
           >
             <motion.a
-              href="https://github.com"
-              target="_blank"
+              href="GitHub: https://github.com/birukhabte"
+              target="bkank"
               rel="noopener noreferrer"
               className="p-3 glass rounded-lg text-gray-400 hover:text-primary-400 hover:bg-white/10 transition-all"
               whileHover={{ scale: 1.1, y: -2 }}
