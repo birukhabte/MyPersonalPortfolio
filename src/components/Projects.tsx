@@ -29,13 +29,13 @@ const projects: Project[] = [
   },
   {
     id: 2,
-    title: 'Task Management App',
+    title: 'You Tube Clone',
     description:
-      'A collaborative task management application with real-time updates and drag-and-drop functionality.',
+      'A fully responsive YouTube-inspired web application built using React.js, HTML, CSS, and JavaScript, featuring real-time API integration to fetch and display video content dynamically. The application replicates core YouTube functionalities with a modern, user-friendly interface.',
     image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800',
-    tech: ['React', 'TypeScript', 'Firebase', 'Tailwind CSS'],
-    github: 'https://github.com',
-    live: 'https://example.com',
+    tech: ['React', 'HTML', 'CSS', 'JavaScript', 'Youtube Data API'],
+    github: 'https://github.com/birukhabte/Youtube_clone.git',
+    live: 'https://yyoutubeclone.vercel.app/',
     category: 'frontend',
   },
   {
@@ -141,8 +141,8 @@ const Projects = () => {
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
                   className={`px-6 py-2 rounded-lg font-medium transition-all ${activeCategory === category.id
-                      ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/50'
-                      : 'glass text-gray-300 hover:text-white hover:bg-white/10'
+                    ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/50'
+                    : 'glass text-gray-300 hover:text-white hover:bg-white/10'
                     }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
