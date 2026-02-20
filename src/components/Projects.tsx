@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { FiGithub, FiExternalLink } from 'react-icons/fi'
+import livePhoto from '../assets/live photo.png'
 
 interface Project {
   id: number
@@ -21,7 +22,7 @@ const projects: Project[] = [
     title: 'Teen Magazine',
     description:
       'A full stack website for a digital magazine',
-    image: '/src/assets/live photo.png',
+    image: livePhoto,
     tech: ['Svelte', 'Supabase', 'Github-actions'],
     github: 'https://github.com/birukhabte/teen-magazin.git',
     live: 'https://teen-ethiopia.vercel.app/',
