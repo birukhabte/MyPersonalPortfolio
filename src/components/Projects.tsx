@@ -22,7 +22,7 @@ const projects: Project[] = [
     description:
       'A full stack website for a digital magazine',
     image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800',
-    tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
+    tech: ['Svelte', 'Supabase', 'Github-actions'],
     github: 'https://github.com/birukhabte/MyPersonalPortfolio',
     live: 'https://example.com',
     category: 'fullstack',
