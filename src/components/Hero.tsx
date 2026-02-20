@@ -62,12 +62,13 @@ const Hero = () => {
   }
 
   const handleDownloadCV = () => {
-    // Replace with your actual CV URL
-    const cvUrl = '/cv.pdf'
+    // Download the resume from public folder
     const link = document.createElement('a')
-    link.href = cvUrl
-    link.download = 'file:///C:/Users/Biruk/Downloads/Biruk-Habte-FlowCV-Resume-20260213.pdf'
+    link.href = '/Biruk-Habte-FlowCV-Resume-20260220.pdf'
+    link.download = 'Biruk-Habte-Resume.pdf'
+    document.body.appendChild(link)
     link.click()
+    document.body.removeChild(link)
   }
 
   return (
