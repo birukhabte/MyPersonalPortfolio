@@ -18,9 +18,9 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: 'E-Commerce Platform',
+    title: 'Teen Magazine',
     description:
-      'A full-stack e-commerce solution with payment integration, user authentication, and admin dashboard.',
+      'A full stack website for a digital magazine',
     image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800',
     tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
     github: 'https://github.com/birukhabte/MyPersonalPortfolio',
