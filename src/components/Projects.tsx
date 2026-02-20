@@ -21,10 +21,10 @@ const projects: Project[] = [
     title: 'Teen Magazine',
     description:
       'A full stack website for a digital magazine',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800',
+    image: '/src/assets/live photo.png',
     tech: ['Svelte', 'Supabase', 'Github-actions'],
-    github: 'https://github.com/birukhabte/MyPersonalPortfolio',
-    live: 'https://example.com',
+    github: 'https://github.com/birukhabte/teen-magazin.git',
+    live: 'https://teen-ethiopia.vercel.app/',
     category: 'fullstack',
   },
   {
