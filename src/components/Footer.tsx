@@ -36,9 +36,9 @@ const Footer = () => {
 
           <div className="flex items-center gap-4">
             {[
-              { icon: <FaGithub />, href: ' https://github.com/birukhabte', label: 'GitHub' },
-              { icon: <FaLinkedin />, href: 'www.linkedin.com/in/biruk-habte-ab9642295', label: 'LinkedIn' },
-              { icon: <FaEnvelope />, href: 'biruk.habte-ug@aau.edu.et', label: 'Email' },
+              { icon: <FaGithub />, href: 'https://github.com/birukhabte', label: 'GitHub' },
+              { icon: <FaLinkedin />, href: 'https://www.linkedin.com/in/biruk-habte-ab9642295', label: 'LinkedIn' },
+              { icon: <FaEnvelope />, href: 'mailto:biruk.habte-ug@aau.edu.et', label: 'Email' },
             ].map((social) => (
               <motion.a
                 key={social.label}
