@@ -5,9 +5,6 @@ import { useRef } from 'react'
 import { FiSend, FiMail, FiMapPin, FiPhone, FiCheckCircle, FiAlertCircle } from 'react-icons/fi'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 
-// ⚠️ REPLACE THIS with your actual Formspree form ID from https://formspree.io
-const FORMSPREE_FORM_ID = 'YOUR_FORM_ID'
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
