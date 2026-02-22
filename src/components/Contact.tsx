@@ -174,7 +174,7 @@ const Contact = () => {
                   {[
                     { icon: <FaGithub />, href: 'https://github.com/birukhabte', label: 'GitHub' },
                     { icon: <FaLinkedin />, href: 'https://linkedin.com', label: 'LinkedIn' },
-                    { icon: <FaTwitter />, href: 'https://twitter.com', label: 'Twitter' },
+                    
                   ].map((social) => (
                     <motion.a
                       key={social.label}
