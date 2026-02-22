@@ -64,7 +64,7 @@ const Hero = () => {
   const handleDownloadCV = () => {
     // Download the resume from public folder
     const link = document.createElement('a')
-    link.href = '/Biruk-Habte-FlowCV-Resume-20260220.pdf'
+    link.href = '/Biruk-Habte-FlowCV-Resume.pdf'
     link.download = 'Biruk-Habte-Resume.pdf'
     document.body.appendChild(link)
     link.click()
