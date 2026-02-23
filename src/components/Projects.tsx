@@ -57,7 +57,7 @@ const projects: Project[] = [
       'A modern dashboard for managing social media accounts with analytics and scheduling features.',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
     tech: ['Next.js', 'TypeScript', 'Chart.js', 'Prisma'],
-    github: 'https://github.com',
+    github: 'https://github.com/birukhabte/Gym_ecommerce.git',
     live: 'https://example.com',
     category: 'fullstack',
   },
