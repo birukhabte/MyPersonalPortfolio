@@ -58,7 +58,7 @@ const projects: Project[] = [
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
     tech: ['Next.js', 'TypeScript', 'Chart.js', 'Prisma'],
     github: 'https://github.com/birukhabte/Gym_ecommerce.git',
-    live: 'https://example.com',
+    live: 'https://nextjs-ecommerce-typescript.vercel.app/',
     category: 'fullstack',
   },
   {
