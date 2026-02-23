@@ -56,7 +56,7 @@ const projects: Project[] = [
     description:
       'fitness e-commerce web application built using Next.js 13, focused on selling fitness-related products such as gym equipment, supplements, and workout accessories. It demonstrates modern full-stack development practices with scalable architecture and optimized performance.',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
-    tech: ['Next.js', 'TypeScript', 'Chart.js', 'Prisma'],
+    tech: ['Next.js', 'TypeScript', 'MongoDb', 'Tailwind CSS'],
     github: 'https://github.com/birukhabte/Gym_ecommerce.git',
     live: 'https://nextjs-ecommerce-typescript.vercel.app/',
     category: 'fullstack',
