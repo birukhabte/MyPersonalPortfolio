@@ -15,7 +15,7 @@ import {
   FaCloud,
   FaGlobe,
 } from 'react-icons/fa'
-import { SiTypescript, SiPostgresql, SiMongodb, SiTailwindcss, SiMysql, SiFirebase, SiExpress, SiNestjs, SiDjango, SiNextdotjs, SiPrisma, SiSupabase, SiGithub, SiVercel, SiNetlify, SiSvelte } from 'react-icons/si'
+import { SiTypescript, SiPostgresql, SiMongodb, SiTailwindcss, SiMysql, SiFirebase, SiExpress, SiNestjs, SiDjango, SiNextdotjs, SiPrisma, SiSupabase, SiGithub, SiVercel, SiNetlify } from 'react-icons/si'
 
 interface Skill {
   name: string
@@ -28,7 +28,6 @@ const skills: Skill[] = [
   // Frontend
   { name: 'React', icon: <FaReact />, category: 'frontend', color: '#61DAFB' },
   { name: 'Next.js', icon: <SiNextdotjs />, category: 'frontend', color: '#000000' },
-  { name: 'Svelte', icon: <SiSvelte />, category: 'frontend', color: '#FF3E00' },
   { name: 'TypeScript', icon: <SiTypescript />, category: 'frontend', color: '#3178C6' },
   { name: 'Tailwind CSS', icon: <SiTailwindcss />, category: 'frontend', color: '#06B6D4' },
   { name: 'JavaScript', icon: <FaJs />, category: 'frontend', color: '#F7DF1E' },
