@@ -8,7 +8,6 @@ import {
   FaTools,
   FaJs,
   FaPython,
-  FaAws,
   FaDocker,
   FaServer,
   FaPhp,
@@ -16,7 +15,7 @@ import {
   FaCloud,
   FaGlobe,
 } from 'react-icons/fa'
-import { SiTypescript, SiPostgresql, SiMongodb, SiTailwindcss, SiMysql, SiFirebase, SiExpress, SiNestjs, SiDjango, SiNextdotjs, SiPrisma, SiSupabase, SiGithub, SiVercel, SiNetlify, SiDigitalocean, SiSvelte } from 'react-icons/si'
+import { SiTypescript, SiPostgresql, SiMongodb, SiTailwindcss, SiMysql, SiFirebase, SiExpress, SiNestjs, SiDjango, SiNextdotjs, SiPrisma, SiSupabase, SiGithub, SiVercel, SiNetlify, SiSvelte } from 'react-icons/si'
 
 interface Skill {
   name: string
@@ -59,8 +58,6 @@ const skills: Skill[] = [
   { name: 'Vercel', icon: <SiVercel />, category: 'cloud', color: '#000000' },
   { name: 'Netlify', icon: <SiNetlify />, category: 'cloud', color: '#00C7B7' },
   { name: 'Firebase Hosting', icon: <SiFirebase />, category: 'cloud', color: '#FFCA28' },
-  { name: 'AWS', icon: <FaAws />, category: 'cloud', color: '#FF9900' },
-  { name: 'DigitalOcean', icon: <SiDigitalocean />, category: 'cloud', color: '#0080FF' },
 ]
 
 const categories = [
