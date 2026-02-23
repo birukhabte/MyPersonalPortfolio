@@ -4,6 +4,7 @@ import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { FiGithub, FiExternalLink } from 'react-icons/fi'
 import livePhoto from '../assets/live photo.png'
+import fitnessPhoto from '../assets/intro.jpg'
 
 interface Project {
   id: number
@@ -55,7 +56,7 @@ const projects: Project[] = [
     title: 'Fitness E-commerce site',
     description:
       'fitness e-commerce web application built using Next.js 13, focused on selling fitness-related products such as gym equipment, supplements, and workout accessories. It demonstrates modern full-stack development practices with scalable architecture and optimized performance.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
+    image: fitnessPhoto,
     tech: ['Next.js', 'TypeScript', 'MongoDb', 'Tailwind CSS'],
     github: 'https://github.com/birukhabte/Gym_ecommerce.git',
     live: 'https://nextjs-ecommerce-typescript.vercel.app/',
