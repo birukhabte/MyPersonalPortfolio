@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { FiSend, FiMail, FiMapPin, FiPhone, FiCheckCircle, FiAlertCircle } from 'react-icons/fi'
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -174,7 +174,7 @@ const Contact = () => {
                   {[
                     { icon: <FaGithub />, href: 'https://github.com/birukhabte', label: 'GitHub' },
                     { icon: <FaLinkedin />, href: 'https://linkedin.com', label: 'LinkedIn' },
-                    
+
                   ].map((social) => (
                     <motion.a
                       key={social.label}
