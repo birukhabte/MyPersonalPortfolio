@@ -80,23 +80,23 @@ const About = () => {
               variants={itemVariants}
               className="flex-1 glass-dark rounded-2xl p-8 sm:p-10"
             >
-              <p className="text-lg text-gray-300 leading-relaxed mb-6">
+              <p className="text-base text-gray-300 leading-relaxed mb-6">
                 I am a passionate Full-Stack Developer with a solid background in the latest web technologies. I am skilled at developing scalable and high-performance applications that address real-world issues.
               </p>
-              <p className="text-lg text-gray-300 leading-relaxed mb-6">
-               As a developer with expertise in both frontend and backend development, I am able to deliver seamless user experiences while developing robust and maintainable code. I am always eager to learn new technologies and take up new challenges.
+              <p className="text-base text-gray-300 leading-relaxed mb-6">
+                As a developer with expertise in both frontend and backend development, I am able to deliver seamless user experiences while developing robust and maintainable code. I am always eager to learn new technologies and take up new challenges.
               </p>
-              <p className="text-lg text-gray-300 leading-relaxed">
-                Founder and administrator of Ethio Coders, a fast-growing Telegram community  
-                <a 
-                  href="https://t.me/Ethio_Coders_channel" 
-                  target="_blank" 
+              <p className="text-base text-gray-300 leading-relaxed">
+                Founder and administrator of Ethio Coders, a fast-growing Telegram community
+                <a
+                  href="https://t.me/Ethio_Coders_channel"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary-400 hover:text-primary-300 underline transition-colors mx-2"
                 >
-                   https://t.me/Ethio_Coders_channel
+                  https://t.me/Ethio_Coders_channel
                 </a>
-                 with 4.4K+ members, where I share frontend and backend programming tools, best practices, and career guidance for students and junior developers. Strong believer in collaboration, continuous learning, and building impactful software.
+                with 4.4K+ members, where I share frontend and backend programming tools, best practices, and career guidance for students and junior developers. Strong believer in collaboration, continuous learning, and building impactful software.
               </p>
             </motion.div>
           </div>
