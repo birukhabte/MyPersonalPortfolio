@@ -64,8 +64,8 @@ const Hero = () => {
   const handleDownloadCV = () => {
     // Download the resume from public folder
     const link = document.createElement('a')
-    link.href = '/Biruk-Habte-FlowCV-Resume.pdf'
-    link.download = 'Biruk-Habte-Resume.pdf'
+    link.href = '/Biruk_Habte_Resume.pdf'
+    link.download = 'Biruk_Habte_Resume.pdf'
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -287,14 +287,18 @@ const Hero = () => {
             >
               <FaLinkedin size={24} />
             </motion.a>
-            <motion.a
-              href="mailto: biruk.habte-ug@aau.edu.et"
+            <motion.button
+              onClick={() => {
+                const contact = document.querySelector('#contact')
+                contact?.scrollIntoView({ behavior: 'smooth' })
+              }}
               className="p-3 glass rounded-lg text-gray-400 hover:text-primary-400 hover:bg-white/10 transition-all"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.9 }}
+              aria-label="Go to Contact section"
             >
               <FaEnvelope size={24} />
-            </motion.a>
+            </motion.button>
           </motion.div>
         </motion.div>
       </div>
