@@ -5,6 +5,7 @@ import { useRef } from 'react'
 import { FiGithub, FiExternalLink } from 'react-icons/fi'
 import livePhoto from '../assets/live photo.png'
 import fitnessPhoto from '../assets/intro.jpg'
+import powerlinkPhoto from '../assets/powerlik profile.png'
 
 interface Project {
   id: number
@@ -83,6 +84,17 @@ const projects: Project[] = [
     github: 'https://github.com',
     live: 'https://example.com',
     category: 'backend',
+  },
+  {
+    id: 7,
+    title: 'PowerLink Ethiopia',
+    description:
+      'PowerLink Ethiopia is a web-based platform designed to improve communication between citizens and power service providers in Ethiopia. The system allows users to report power outages, request electrical services, and track the status of their requests in real time, helping reduce delays and improve service transparency.',
+    image: powerlinkPhoto,
+    tech: ['React', 'Node.js/Express', 'Tailwind CSS', 'Supabase (PostgreSQL)'],
+    github: 'https://github.com/birukhabte/Powerlink.git',
+    live: 'https://powerlinkethiopiasystem.vercel.app/',
+    category: 'fullstack',
   },
 ]
 
