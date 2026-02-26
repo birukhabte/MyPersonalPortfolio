@@ -15,7 +15,7 @@ interface Project {
   tech: string[]
   github: string
   live: string
-  category: 'all' | 'frontend' | 'fullstack'
+  category: 'all' | 'fullstack'
 }
 
 const projects: Project[] = [
@@ -41,17 +41,7 @@ const projects: Project[] = [
     live: 'https://nextjs-ecommerce-typescript.vercel.app/',
     category: 'fullstack',
   },
-  {
-    id: 5,
-    title: 'Weather App',
-    description:
-      'A beautiful weather application with location-based forecasts and interactive maps.',
-    image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800',
-    tech: ['React', 'OpenWeather API', 'Tailwind CSS'],
-    github: 'https://github.com',
-    live: 'https://example.com',
-    category: 'frontend',
-  },
+
 
   {
     id: 7,
@@ -68,7 +58,6 @@ const projects: Project[] = [
 
 const categories = [
   { id: 'all', name: 'All' },
-  { id: 'frontend', name: 'Frontend' },
   { id: 'fullstack', name: 'Full Stack' },
 ]
 
