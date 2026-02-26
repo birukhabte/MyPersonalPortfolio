@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
+import { FiChevronDown, FiChevronUp } from 'react-icons/fi'
 import {
   FaReact,
   FaNode,
@@ -72,6 +73,12 @@ const Skills = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
   const [activeCategory, setActiveCategory] = useState('all')
+  const [showAll, setShowAll] = useState(false)
+
+  const handleCategoryChange = (id: string) => {
+    setActiveCategory(id)
+    setShowAll(false)
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -112,7 +119,7 @@ const Skills = () => {
             {categories.map((category) => (
               <button
                 key={category.id}
-                onClick={() => setActiveCategory(category.id)}
+                onClick={() => handleCategoryChange(category.id)}
                 className={`flex items-center gap-2 px-6 py-3 rounded-full text-lg font-medium transition-all duration-300 ${activeCategory === category.id
                   ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/25 scale-105'
                   : 'glass text-gray-400 hover:text-white hover:bg-white/10'
@@ -132,6 +139,7 @@ const Skills = () => {
             <AnimatePresence mode="popLayout">
               {skills
                 .filter((skill) => activeCategory === 'all' || skill.category === activeCategory)
+                .slice(0, activeCategory === 'all' && !showAll ? 8 : undefined)
                 .map((skill, index) => (
                   <motion.div
                     key={skill.name}
@@ -161,6 +169,22 @@ const Skills = () => {
                 ))}
             </AnimatePresence>
           </motion.div>
+
+          {/* Show more / less button — only on All tab */}
+          {activeCategory === 'all' && skills.length > 8 && (
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={() => setShowAll((prev) => !prev)}
+                className="flex items-center gap-2 px-6 py-2 rounded-full text-sm font-medium text-primary-400 hover:text-primary-300 glass hover:bg-white/10 border border-primary-500/20 transition-all duration-300"
+              >
+                {showAll ? (
+                  <><FiChevronUp size={16} /> Show less</>
+                ) : (
+                  <><FiChevronDown size={16} /> Show more</>
+                )}
+              </button>
+            </div>
+          )}
         </motion.div>
       </div>
     </section>
