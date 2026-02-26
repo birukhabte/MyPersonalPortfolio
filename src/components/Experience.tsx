@@ -54,7 +54,7 @@ const experienceItems: TimelineItem[] = [
     title: 'Junior Full Stack Developer',
     company: 'Efuye Gela Tech Company',
     location: '',
-    period: '05/2024 – 02/2025',
+    period: '10/2025 – 12/2025',
     description: [
       'Developed and maintained full-stack web applications using React, Tailwind CSS, Node.js, and Express',
       'Built responsive and intuitive user interfaces with a strong focus on usability and performance',
@@ -64,7 +64,7 @@ const experienceItems: TimelineItem[] = [
       'Collaborated with team members using Git for version control and followed Agile-based workflows',
       'Continuously improved technical skills through hands-on projects, remote collaboration, and self-directed learning',
     ],
-    skills: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Express', 'PostgreSQL', 'Tailwind CSS', 'Git'],
+    skills: ['JavaScript', 'TypeScript', 'React', 'Express', 'PostgreSQL', 'Tailwind CSS', 'Git'],
   },
   {
     id: 6,
