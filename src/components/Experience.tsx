@@ -1,7 +1,8 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { FiBriefcase } from 'react-icons/fi'
+import { FiBriefcase, FiChevronDown, FiChevronUp } from 'react-icons/fi'
 
 interface TimelineItem {
   id: number
@@ -85,6 +86,13 @@ const experienceItems: TimelineItem[] = [
 const Experience = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const [expandedIds, setExpandedIds] = useState<number[]>([])
+
+  const toggleExpand = (id: number) => {
+    setExpandedIds((prev) =>
+      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
+    )
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -152,7 +160,10 @@ const Experience = () => {
                 </div>
 
                 <ul className="space-y-2 flex-grow">
-                  {item.description.map((desc, idx) => (
+                  {(expandedIds.includes(item.id)
+                    ? item.description
+                    : item.description.slice(0, 2)
+                  ).map((desc, idx) => (
                     <li
                       key={idx}
                       className="text-gray-300 text-sm flex items-start gap-2"
@@ -162,6 +173,19 @@ const Experience = () => {
                     </li>
                   ))}
                 </ul>
+
+                {item.description.length > 2 && (
+                  <button
+                    onClick={() => toggleExpand(item.id)}
+                    className="mt-3 flex items-center gap-1 text-xs font-medium text-primary-400 hover:text-primary-300 transition-colors"
+                  >
+                    {expandedIds.includes(item.id) ? (
+                      <><FiChevronUp size={14} /> Show less</>
+                    ) : (
+                      <><FiChevronDown size={14} /> Show more</>
+                    )}
+                  </button>
+                )}
 
                 {/* Skills Tags */}
                 <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-700/50">
