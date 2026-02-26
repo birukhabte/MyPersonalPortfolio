@@ -71,14 +71,14 @@ const experienceItems: TimelineItem[] = [
     title: 'Freelance Developer',
     company: 'Freelance',
     location: '',
-    period: '06/2024 – Present',
+    period: '05/2024 – Present',
     description: [
       'Designing, developing, and delivering high-quality software solutions for a variety of clients, focusing on performance, scalability, and maintainable architecture',
       'Translating business requirements into effective technical implementations, building robust backend systems, optimized APIs and databases, and modern front-end interfaces',
       'Ensuring code quality through best practices, testing, and reviews, while introducing automation and process improvements to accelerate delivery and reliability',
       'Combining hands-on development with strategic planning to help clients achieve their goals through tailored, user-focused software products',
     ],
-    skills: ['React', 'Next.js', 'Node.js', 'TypeScript', 'Flutter', 'Dart', 'PostgreSQL', 'MongoDb', 'Firebase',],
+    skills: ['React', 'Next.js', 'Node.js', 'TypeScript', 'Phyton', 'Django', 'Laravel', 'MongoDb', 'Firebase', 'NestJS', 'PostgreSQL', 'Tailwind CSS', 'Git'],
   },
 ]
 
