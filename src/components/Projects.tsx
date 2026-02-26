@@ -1,4 +1,4 @@
-import { useState } from 'react'
+
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
@@ -56,20 +56,11 @@ const projects: Project[] = [
   },
 ]
 
-const categories = [
-  { id: 'all', name: 'All' },
-  { id: 'fullstack', name: 'Full Stack' },
-]
+
 
 const Projects = () => {
-  const [activeCategory, setActiveCategory] = useState('all')
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
-
-  const filteredProjects =
-    activeCategory === 'all'
-      ? projects
-      : projects.filter((project) => project.category === activeCategory)
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -103,24 +94,6 @@ const Projects = () => {
               Projects
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary-400 to-primary-600 mx-auto rounded-full mb-8" />
-
-            {/* Category Filter */}
-            <div className="flex flex-wrap justify-center gap-3 mb-12">
-              {categories.map((category) => (
-                <motion.button
-                  key={category.id}
-                  onClick={() => setActiveCategory(category.id)}
-                  className={`px-6 py-2 rounded-lg font-medium transition-all ${activeCategory === category.id
-                    ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/50'
-                    : 'glass text-gray-300 hover:text-white hover:bg-white/10'
-                    }`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {category.name}
-                </motion.button>
-              ))}
-            </div>
           </motion.div>
 
           {/* Projects Grid */}
@@ -128,7 +101,7 @@ const Projects = () => {
             variants={containerVariants}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {filteredProjects.map((project, index) => (
+            {projects.map((project, index) => (
               <motion.div
                 key={project.id}
                 variants={itemVariants}
