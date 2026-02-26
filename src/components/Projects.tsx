@@ -15,7 +15,7 @@ interface Project {
   tech: string[]
   github: string
   live: string
-  category: 'all' | 'frontend' | 'fullstack' | 'backend'
+  category: 'all' | 'frontend' | 'fullstack'
 }
 
 const projects: Project[] = [
@@ -41,17 +41,7 @@ const projects: Project[] = [
     live: 'https://yyoutubeclone.vercel.app/',
     category: 'frontend',
   },
-  {
-    id: 3,
-    title: 'REST API Service',
-    description:
-      'A scalable REST API built with Node.js and Express, featuring authentication and rate limiting.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800',
-    tech: ['Node.js', 'Express', 'MongoDB', 'JWT'],
-    github: 'https://github.com',
-    live: 'https://example.com',
-    category: 'backend',
-  },
+
   {
     id: 4,
     title: 'Fitness E-commerce site',
@@ -74,17 +64,7 @@ const projects: Project[] = [
     live: 'https://example.com',
     category: 'frontend',
   },
-  {
-    id: 6,
-    title: 'Microservices Architecture',
-    description:
-      'A distributed system with multiple microservices communicating via message queues.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800',
-    tech: ['Node.js', 'Docker', 'RabbitMQ', 'Kubernetes'],
-    github: 'https://github.com',
-    live: 'https://example.com',
-    category: 'backend',
-  },
+
   {
     id: 7,
     title: 'PowerLink Ethiopia',
@@ -102,7 +82,6 @@ const categories = [
   { id: 'all', name: 'All' },
   { id: 'frontend', name: 'Frontend' },
   { id: 'fullstack', name: 'Full Stack' },
-  { id: 'backend', name: 'Backend' },
 ]
 
 const Projects = () => {
