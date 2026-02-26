@@ -31,18 +31,6 @@ const projects: Project[] = [
     category: 'fullstack',
   },
   {
-    id: 2,
-    title: 'You Tube Clone',
-    description:
-      'A fully responsive YouTube-inspired web application built using React.js, HTML, CSS, and JavaScript, featuring real-time API integration to fetch and display video content dynamically. The application replicates core YouTube functionalities with a modern, user-friendly interface.',
-    image: 'https://images.unsplash.com/photo-1603566234384-f5f5b59168cc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    tech: ['React', 'HTML', 'CSS', 'JavaScript', 'Youtube Data API'],
-    github: 'https://github.com/birukhabte/Youtube_clone.git',
-    live: 'https://yyoutubeclone.vercel.app/',
-    category: 'frontend',
-  },
-
-  {
     id: 4,
     title: 'Fitness E-commerce site',
     description:
