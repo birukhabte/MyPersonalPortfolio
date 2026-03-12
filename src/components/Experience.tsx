@@ -14,6 +14,75 @@ interface TimelineItem {
   skills: string[]
 }
 
+// Individual Experience Card Component
+const ExperienceCard = ({ item, variants }: { item: TimelineItem, variants: any }) => {
+  const [isExpanded, setIsExpanded] = useState(false)
+
+  const toggleExpand = () => {
+    setIsExpanded(prev => !prev)
+  }
+
+  return (
+    <motion.div
+      variants={variants}
+      className="glass-dark rounded-2xl p-6 border border-gray-700/50 hover:border-primary-400 hover:bg-white/5 transition-all duration-300 h-full flex flex-col"
+      whileHover={{ scale: 1.02, y: -4 }}
+    >
+      <div className="mb-4">
+        <h4 className="text-xl font-semibold text-gray-200 mb-1">
+          {item.title}
+        </h4>
+        <p className="text-primary-400 font-medium mb-1">
+          {item.company}
+        </p>
+        <p className="text-sm text-gray-400 mb-2">
+          {item.location ? `${item.location} • ` : ''}{item.period}
+        </p>
+      </div>
+
+      <ul className="space-y-2 flex-grow">
+        {(isExpanded
+          ? item.description
+          : item.description.slice(0, 2)
+        ).map((desc, idx) => (
+          <li
+            key={idx}
+            className="text-gray-300 text-sm flex items-start gap-2"
+          >
+            <span className="text-primary-400 mt-1.5">▹</span>
+            <span>{desc}</span>
+          </li>
+        ))}
+      </ul>
+
+      {item.description.length > 2 && (
+        <button
+          onClick={toggleExpand}
+          className="mt-3 flex items-center gap-1 text-xs font-medium text-primary-400 hover:text-primary-300 transition-colors"
+        >
+          {isExpanded ? (
+            <><FiChevronUp size={14} /> Show less</>
+          ) : (
+            <><FiChevronDown size={14} /> Show more</>
+          )}
+        </button>
+      )}
+
+      {/* Skills Tags */}
+      <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-700/50">
+        {item.skills.map((skill, idx) => (
+          <span
+            key={idx}
+            className="px-3 py-1 text-xs font-medium rounded-full bg-primary-500/10 text-primary-400 border border-primary-500/20"
+          >
+            {skill}
+          </span>
+        ))}
+      </div>
+    </motion.div>
+  )
+}
+
 const experienceItems: TimelineItem[] = [
   {
     id: 1,
@@ -31,10 +100,8 @@ const experienceItems: TimelineItem[] = [
     ],
     skills: ['Next.js', 'Node.js', 'Tailwind CSS', 'JavaScript', 'REST API', 'Prisma ORM'],
   },
-
-
   {
-    id: 4,
+    id: 2,
     title: 'Software Engineer',
     company: 'Habeshacode Software Company',
     location: '',
@@ -51,7 +118,7 @@ const experienceItems: TimelineItem[] = [
     skills: ['JavaScript', 'React', 'Node.js', 'MongoDB', 'Git', 'REST API',],
   },
   {
-    id: 5,
+    id: 3,
     title: 'Junior Full Stack Developer',
     company: 'Efuye Gela Tech Company',
     location: '',
@@ -68,7 +135,7 @@ const experienceItems: TimelineItem[] = [
     skills: ['JavaScript', 'TypeScript', 'React', 'Express', 'PostgreSQL', 'Tailwind CSS', 'Git'],
   },
   {
-    id: 6,
+    id: 4,
     title: 'Freelance Developer',
     company: 'Freelance',
     location: '',
@@ -86,13 +153,6 @@ const experienceItems: TimelineItem[] = [
 const Experience = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
-  const [expandedIds, setExpandedIds] = useState<number[]>([])
-
-  const toggleExpand = (id: number) => {
-    setExpandedIds((prev) =>
-      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
-    )
-  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -141,64 +201,11 @@ const Experience = () => {
           {/* Experience Grid - Parallel Layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {experienceItems.map((item) => (
-              <motion.div
-                key={item.id}
-                variants={itemVariants}
-                className="glass-dark rounded-2xl p-6 border border-gray-700/50 hover:border-primary-400 hover:bg-white/5 transition-all duration-300 h-full flex flex-col"
-                whileHover={{ scale: 1.02, y: -4 }}
-              >
-                <div className="mb-4">
-                  <h4 className="text-xl font-semibold text-gray-200 mb-1">
-                    {item.title}
-                  </h4>
-                  <p className="text-primary-400 font-medium mb-1">
-                    {item.company}
-                  </p>
-                  <p className="text-sm text-gray-400 mb-2">
-                    {item.location ? `${item.location} • ` : ''}{item.period}
-                  </p>
-                </div>
-
-                <ul className="space-y-2 flex-grow">
-                  {(expandedIds.includes(item.id)
-                    ? item.description
-                    : item.description.slice(0, 2)
-                  ).map((desc, idx) => (
-                    <li
-                      key={idx}
-                      className="text-gray-300 text-sm flex items-start gap-2"
-                    >
-                      <span className="text-primary-400 mt-1.5">▹</span>
-                      <span>{desc}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {item.description.length > 2 && (
-                  <button
-                    onClick={() => toggleExpand(item.id)}
-                    className="mt-3 flex items-center gap-1 text-xs font-medium text-primary-400 hover:text-primary-300 transition-colors"
-                  >
-                    {expandedIds.includes(item.id) ? (
-                      <><FiChevronUp size={14} /> Show less</>
-                    ) : (
-                      <><FiChevronDown size={14} /> Show more</>
-                    )}
-                  </button>
-                )}
-
-                {/* Skills Tags */}
-                <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-700/50">
-                  {item.skills.map((skill, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-primary-500/10 text-primary-400 border border-primary-500/20"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
+              <ExperienceCard 
+                key={item.id} 
+                item={item} 
+                variants={itemVariants} 
+              />
             ))}
           </div>
         </motion.div>
