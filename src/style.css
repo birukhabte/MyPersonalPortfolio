@@ -4,7 +4,9 @@
 
 @layer base {
   body {
-    @apply bg-gray-900 text-gray-100 antialiased;
+    background: linear-gradient(135deg, #915B4A 0%, #0A065D 100%);
+    color: #F4F2EC;
+    @apply antialiased;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
   html {
@@ -13,12 +15,36 @@
 }
 
 @layer utilities {
+  .custom-bg {
+    background: linear-gradient(135deg, #915B4A 0%, #0A065D 100%);
+  }
+  
+  .primary-color {
+    color: #3E5566;
+  }
+  
+  .secondary-color {
+    color: #6E8391;
+  }
+  
+  .accent-color {
+    color: #B7A999;
+  }
+  
+  .text-color {
+    color: #F4F2EC;
+  }
+  
   .glass {
-    @apply bg-white/10 backdrop-blur-md border border-white/20;
+    background: rgba(62, 85, 102, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(183, 169, 153, 0.2);
   }
   
   .glass-dark {
-    @apply bg-gray-900/80 backdrop-blur-md border border-gray-700/50;
+    background: rgba(14, 36, 51, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(110, 131, 145, 0.5);
   }
 }
 
