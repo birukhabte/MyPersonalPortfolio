@@ -5,7 +5,7 @@
 @layer base {
   body {
     background: linear-gradient(135deg, #915B4A 0%, #0A065D 100%);
-    color: #F4F2EC;
+    color: #F5E9E2;
     @apply antialiased;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
@@ -19,6 +19,26 @@
     background: linear-gradient(135deg, #915B4A 0%, #0A065D 100%);
   }
   
+  .text-cream {
+    color: #F5E9E2;
+  }
+  
+  .accent-golden {
+    color: #D4A373;
+  }
+  
+  .bg-accent-golden {
+    background-color: #D4A373;
+  }
+  
+  .border-accent-golden {
+    border-color: #D4A373;
+  }
+  
+  .hover-accent-golden:hover {
+    color: #D4A373;
+  }
+  
   .primary-color {
     color: #3E5566;
   }
@@ -28,23 +48,23 @@
   }
   
   .accent-color {
-    color: #B7A999;
+    color: #D4A373;
   }
   
   .text-color {
-    color: #F4F2EC;
+    color: #F5E9E2;
   }
   
   .glass {
     background: rgba(62, 85, 102, 0.1);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(183, 169, 153, 0.2);
+    border: 1px solid rgba(212, 163, 115, 0.2);
   }
   
   .glass-dark {
     background: rgba(14, 36, 51, 0.8);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(110, 131, 145, 0.5);
+    border: 1px solid rgba(212, 163, 115, 0.3);
   }
 }
 
