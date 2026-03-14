@@ -90,8 +90,8 @@ const Navbar = () => {
               >
                 <span
                   className={`transition-colors ${activeLink === link.name
-                    ? 'text-primary-400'
-                    : 'text-gray-300 hover:text-white'
+                    ? 'text-golden'
+                    : 'text-cream hover:text-golden'
                     }`}
                 >
                   {link.name}
@@ -99,7 +99,7 @@ const Navbar = () => {
                 {activeLink === link.name && (
                   <motion.div
                     layoutId="activeIndicator"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-400 to-primary-600 rounded-full"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-golden rounded-full"
                     initial={false}
                     transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                   />
@@ -110,7 +110,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden text-gray-300 hover:text-white"
+            className="md:hidden text-cream hover:text-golden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             whileTap={{ scale: 0.9 }}
           >
@@ -138,8 +138,8 @@ const Navbar = () => {
                     handleLinkClick(link.name, link.href)
                   }}
                   className={`block px-2 py-1 rounded-lg transition-colors ${activeLink === link.name
-                    ? 'bg-primary-500/20 text-primary-400'
-                    : 'text-gray-300 hover:bg-gray-800 hover:text-white'
+                    ? 'bg-golden/20 text-golden'
+                    : 'text-cream hover:bg-golden/10 hover:text-golden'
                     }`}
                   whileHover={{ x: 4 }}
                 >
