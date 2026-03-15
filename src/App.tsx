@@ -7,6 +7,7 @@ import Projects from './components/Projects'
 import Experience from './components/Experience'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import ColorSwitcher from './components/ColorSwitcher'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Contact />
         </main>
         <Footer />
+        <ColorSwitcher />
       </AnimatePresence>
     </div>
   )

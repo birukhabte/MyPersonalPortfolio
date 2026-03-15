@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --bg-gradient: linear-gradient(135deg, #915B4A 0%, #0A065D 100%);
+  }
+  
   body {
-    background: linear-gradient(135deg, #915B4A 0%, #0A065D 100%);
+    background: var(--bg-gradient);
     color: #F5E9E2;
     @apply antialiased;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -16,7 +20,7 @@
 
 @layer utilities {
   .custom-bg {
-    background: linear-gradient(135deg, #915B4A 0%, #0A065D 100%);
+    background: var(--bg-gradient);
   }
   
   .text-cream {
