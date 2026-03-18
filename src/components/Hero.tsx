@@ -85,7 +85,7 @@ const Hero = () => {
         >
           <motion.div variants={itemVariants} className="mb-6">
             <motion.span
-              className="inline-block px-4 py-2 rounded-full glass text-primary-400 text-sm font-medium mb-4"
+              className="inline-block px-4 py-2 rounded-full glass text-neon text-sm futura-nav mb-4"
               whileHover={{ scale: 1.05 }}
             >
               Full-Stack Developer
@@ -94,7 +94,7 @@ const Hero = () => {
 
           <motion.h1
             variants={itemVariants}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-gray-100 to-gray-400 bg-clip-text text-transparent"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl futura-display mb-6 bg-gradient-to-r from-white via-gray-100 to-gray-400 bg-clip-text text-transparent"
           >
             <motion.span
               initial={{ opacity: 0, y: 20 }}
@@ -104,7 +104,7 @@ const Hero = () => {
               Hi, I'm{' '}
             </motion.span>
             <motion.span
-              className="bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600 bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-neon via-green-400 to-neon bg-clip-text text-transparent"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
@@ -116,7 +116,7 @@ const Hero = () => {
 
           <motion.p
             variants={itemVariants}
-            className="text-xl sm:text-2xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed"
+            className="text-xl sm:text-2xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed futura-body"
           >
             I build beautiful, functional, and scalable web applications that
             deliver exceptional user experiences.
@@ -131,7 +131,7 @@ const Hero = () => {
                 const projects = document.querySelector('#projects')
                 projects?.scrollIntoView({ behavior: 'smooth' })
               }}
-              className="group px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg font-semibold text-white flex items-center gap-2 hover:shadow-lg hover:shadow-primary-500/50 transition-all"
+              className="btn-primary flex items-center gap-2"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -141,7 +141,7 @@ const Hero = () => {
 
             <motion.button
               onClick={handleDownloadCV}
-              className="group px-8 py-4 glass rounded-lg font-semibold text-white flex items-center gap-2 hover:bg-white/20 transition-all"
+              className="btn-secondary flex items-center gap-2"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -158,7 +158,7 @@ const Hero = () => {
               href="https://github.com/birukhabte"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 glass rounded-lg text-gray-400 hover:text-primary-400 hover:bg-white/10 transition-all"
+              className="p-3 btn-ghost rounded-lg hover:text-neon transition-all"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -168,7 +168,7 @@ const Hero = () => {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 glass rounded-lg text-gray-400 hover:text-primary-400 hover:bg-white/10 transition-all"
+              className="p-3 btn-ghost rounded-lg hover:text-neon transition-all"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -179,7 +179,7 @@ const Hero = () => {
                 const contact = document.querySelector('#contact')
                 contact?.scrollIntoView({ behavior: 'smooth' })
               }}
-              className="p-3 glass rounded-lg text-gray-400 hover:text-primary-400 hover:bg-white/10 transition-all"
+              className="p-3 btn-ghost rounded-lg hover:text-neon transition-all"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Go to Contact section"
@@ -198,7 +198,7 @@ const Hero = () => {
       >
         <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center">
           <motion.div
-            className="w-1 h-3 bg-primary-400 rounded-full mt-2"
+            className="w-1 h-3 bg-neon rounded-full mt-2"
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           />

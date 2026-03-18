@@ -84,14 +84,14 @@ const Navbar = () => {
                   e.preventDefault()
                   handleLinkClick(link.name, link.href)
                 }}
-                className="relative px-2 py-2 text-sm font-medium transition-colors"
+                className="relative px-2 py-2 text-sm futura-nav transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <span
                   className={`transition-colors ${activeLink === link.name
-                    ? 'text-golden'
-                    : 'text-cream hover:text-golden'
+                    ? 'text-neon'
+                    : 'text-white hover:text-neon'
                     }`}
                 >
                   {link.name}
@@ -99,7 +99,7 @@ const Navbar = () => {
                 {activeLink === link.name && (
                   <motion.div
                     layoutId="activeIndicator"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-golden rounded-full"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-neon rounded-full"
                     initial={false}
                     transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                   />
@@ -110,7 +110,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden text-cream hover:text-golden"
+            className="md:hidden text-white hover:text-neon"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             whileTap={{ scale: 0.9 }}
           >
@@ -138,8 +138,8 @@ const Navbar = () => {
                     handleLinkClick(link.name, link.href)
                   }}
                   className={`block px-2 py-1 rounded-lg transition-colors ${activeLink === link.name
-                    ? 'bg-golden/20 text-golden'
-                    : 'text-cream hover:bg-golden/10 hover:text-golden'
+                    ? 'bg-neon/20 text-neon'
+                    : 'text-white hover:bg-neon/10 hover:text-neon'
                     }`}
                   whileHover={{ x: 4 }}
                 >
