@@ -4,12 +4,17 @@
 
 @layer base {
   :root {
-    --bg-gradient: linear-gradient(135deg, #915B4A 0%, #0A065D 100%);
+    --neon-green: #00FF41;
+    --off-white: #F8F9FA;
+    --light-gray: #E8EAED;
+    --medium-gray: #5F6368;
+    --dark-gray: #1A1A1A;
+    --bg-gradient: linear-gradient(135deg, #1A1A1A 0%, #2D2E30 100%);
   }
   
   body {
-    background: var(--bg-gradient);
-    color: #F5E9E2;
+    background: var(--dark-gray);
+    color: var(--off-white);
     @apply antialiased;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
@@ -20,55 +25,110 @@
 
 @layer utilities {
   .custom-bg {
-    background: var(--bg-gradient);
+    background: var(--dark-gray);
   }
   
+  /* Neon Green - Primary accent */
+  .text-neon {
+    color: var(--neon-green);
+  }
+  
+  .bg-neon {
+    background-color: var(--neon-green);
+  }
+  
+  .border-neon {
+    border-color: var(--neon-green);
+  }
+  
+  .hover-neon:hover {
+    color: var(--neon-green);
+  }
+  
+  /* Off-White - Clean backgrounds */
+  .text-offwhite {
+    color: var(--off-white);
+  }
+  
+  .bg-offwhite {
+    background-color: var(--off-white);
+  }
+  
+  /* Light Gray - Secondary backgrounds */
+  .text-lightgray {
+    color: var(--light-gray);
+  }
+  
+  .bg-lightgray {
+    background-color: var(--light-gray);
+  }
+  
+  /* Medium Gray - Secondary text */
+  .text-mediumgray {
+    color: var(--medium-gray);
+  }
+  
+  .bg-mediumgray {
+    background-color: var(--medium-gray);
+  }
+  
+  /* Dark Gray - Main background */
+  .text-darkgray {
+    color: var(--dark-gray);
+  }
+  
+  .bg-darkgray {
+    background-color: var(--dark-gray);
+  }
+  
+  /* Legacy compatibility classes */
   .text-cream {
-    color: #F5E9E2;
+    color: var(--off-white);
   }
   
   .accent-golden {
-    color: #D4A373;
+    color: var(--neon-green);
   }
   
   .bg-accent-golden {
-    background-color: #D4A373;
+    background-color: var(--neon-green);
   }
   
   .border-accent-golden {
-    border-color: #D4A373;
+    border-color: var(--neon-green);
   }
   
   .hover-accent-golden:hover {
-    color: #D4A373;
+    color: var(--neon-green);
   }
   
   .primary-color {
-    color: #3E5566;
+    color: var(--neon-green);
   }
   
   .secondary-color {
-    color: #6E8391;
+    color: var(--medium-gray);
   }
   
   .accent-color {
-    color: #D4A373;
+    color: var(--neon-green);
   }
   
   .text-color {
-    color: #F5E9E2;
+    color: var(--off-white);
   }
   
+  /* Glass effects with new colors */
   .glass {
-    background: rgba(62, 85, 102, 0.1);
+    background: rgba(26, 26, 26, 0.8);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(212, 163, 115, 0.2);
+    border: 1px solid rgba(0, 255, 65, 0.2);
   }
   
   .glass-dark {
-    background: rgba(14, 36, 51, 0.8);
+    background: rgba(26, 26, 26, 0.9);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(212, 163, 115, 0.3);
+    border: 1px solid rgba(0, 255, 65, 0.3);
   }
 }
 
