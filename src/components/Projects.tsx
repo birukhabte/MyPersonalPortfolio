@@ -29,7 +29,7 @@ const projects: Project[] = [
     tech: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js/Express' ,'MongoDB'],
     github: 'https://github.com/birukhabte/Et-cars',
     live: 'https://etcars-nine.vercel.app/',
-    category: ' MERN-stack'
+    category: 'fullstack'
   },
   {
     id: 1,
