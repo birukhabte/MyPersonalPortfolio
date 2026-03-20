@@ -1,11 +1,12 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { FiGithub, FiExternalLink } from 'react-icons/fi'
 import livePhoto from '../assets/live photo.png'
 import fitnessPhoto from '../assets/intro.jpg'
 import powerlinkPhoto from '../assets/powerlik profile.png'
+import carRentalPhoto from '../assets/Screenshot from 2026-03-19 17-45-02.png'
 
 interface Project {
   id: number
@@ -19,6 +20,17 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    id: 9,
+    title: 'Addis-Car Rental Platform ',
+    description:
+      'Car Rental Booking System is a full-stack MERN web app for renting cars online. Users can browse cars, view details, and create bookings with JWT-based login. Admins can add cars, manage inventory, and oversee bookings with image uploads via ImageKit. The frontend runs on React/Vite and the backend on Node/Express with MongoDB.',
+    image: carRentalPhoto,
+    tech: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js/Express' ,'MongoDB'],
+    github: 'https://github.com/birukhabte/Et-cars',
+    live: 'https://etcars-nine.vercel.app/',
+    category: ' MERN-stack'
+  },
   {
     id: 1,
     title: 'Teen Magazine',
@@ -42,7 +54,6 @@ const projects: Project[] = [
     category: 'fullstack',
   },
 
-
   {
     id: 7,
     title: 'PowerLink Ethiopia',
@@ -61,6 +72,19 @@ const projects: Project[] = [
 const Projects = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const [expandedIds, setExpandedIds] = useState<Set<number>>(new Set())
+
+  const toggleDescription = (id: number) => {
+    setExpandedIds((prev) => {
+      const next = new Set(prev)
+      if (next.has(id)) {
+        next.delete(id)
+      } else {
+        next.add(id)
+      }
+      return next
+    })
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -150,9 +174,20 @@ const Projects = () => {
                   <h3 className="text-xl font-semibold text-gray-200 mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 mb-4 line-clamp-3">
+                  <p
+                    className={`text-gray-400 mb-4 ${
+                      expandedIds.has(project.id) ? '' : 'line-clamp-3'
+                    }`}
+                  >
                     {project.description}
                   </p>
+                  <button
+                    type="button"
+                    onClick={() => toggleDescription(project.id)}
+                    className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-primary-400 hover:text-primary-300 glass hover:bg-white/10 border border-primary-500/20 transition-all duration-300 mb-4"
+                  >
+                    {expandedIds.has(project.id) ? 'Show less' : 'See description'}
+                  </button>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech) => (
                       <span
